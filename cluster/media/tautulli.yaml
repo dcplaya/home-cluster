@@ -23,27 +23,28 @@ spec:
       tag: v2.6.1
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - host: tautulli.devbu.io
+      - host: plexpy.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "tautulli.devbu.io"
+        - "plexpy.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "10Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
+        existingClaim: config-tautulli
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "10Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
     resources:
       requests:
         memory: 250Mi

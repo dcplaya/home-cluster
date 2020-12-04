@@ -23,25 +23,26 @@ spec:
       tag: v0.16.2269
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Lost_Angeles"
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "internal"
       hosts:
-      - host: jackett.devbu.io
+      - host: jackett.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "jackett.devbu.io"
+        - "jackett.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "1Gi"
+        existingClaim: config-jackett
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "1Gi"
     podAnnotations:
       backup.velero.io/backup-volumes: config
     resources:

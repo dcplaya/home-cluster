@@ -1,5 +1,6 @@
 postgresql:
   postgresqlPassword: "${HASS_DB_PASSWORD}"
+  postgresqlUsername: "${HASS_DB_USERNAME}"
 vscode:
   extraEnv:
     HASS_TOKEN: "${HASS_TOKEN}"

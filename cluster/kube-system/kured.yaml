@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     configuration:
-      timeZone: "America/New_York"
+      timeZone: "America/Los_Angeles"
       startTime: "2:00"
       endTime: "6:00"
     service:

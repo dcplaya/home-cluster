@@ -22,13 +22,13 @@ spec:
     replicaCount: 1
     isClusterService: false
     serviceType: LoadBalancer
-    service:
-      externalIPs:
-      - 192.168.69.180
-      externalTrafficPolicy: Local
+    # service:
+    #   externalIPs:
+    #   - 192.168.69.180
+    #   externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: devbu.io.
+      - zone: cluster.elcarpenter.com.
         scheme: dns://
         # use_tcp: true
       port: 53

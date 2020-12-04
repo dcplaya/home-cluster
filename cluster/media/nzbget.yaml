@@ -23,39 +23,41 @@ spec:
       tag: v21.0
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - host: nzbget.devbu.io
+      - host: usenet.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "nzbget.devbu.io"
+        - "usenet.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "1Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
+        existingClaim: config-nzbget
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "1Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
-    - name: media-rocinante
-      mountPath: "/media-rocinante"
-    - name: media-serenity
-      mountPath: "/media-serenity"
+    - name: nfs-media
+      mountPath: "/mnt/unionfs"
+    - name: downloads
+      mountPath: "/downloads"
     additionalVolumes:
-    - name: media-rocinante
+    - name: nfs-media
       persistentVolumeClaim:
-        claimName: nfs-media-rocinante-pvc
-    - name: media-serenity
-      persistentVolumeClaim:
-        claimName: nfs-media-serenity-pvc
+        claimName: nfs-nas-merged-media-pvc
+    - name: downloads
+      emptyDir: {}
+      # persistentVolumeClaim:
+      #   claimName: nfs-media-serenity-pvc
     resources:
       requests:
         memory: 250Mi

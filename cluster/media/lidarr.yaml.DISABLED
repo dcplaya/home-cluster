@@ -23,7 +23,7 @@ spec:
       tag: v0.8.0.1918
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:

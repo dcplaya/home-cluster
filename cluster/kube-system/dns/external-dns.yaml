@@ -22,7 +22,7 @@ spec:
     coredns:
       etcdEndpoints: http://etcd:2379
     domainFilters:
-    - devbu.io
+    - cluster.elcarpenter.com
     createSecret: true
     crd:
       create: true

@@ -5,7 +5,7 @@
 ```bash
 flux bootstrap github \
   --version=v0.3.0 \
-  --owner=onedr0p \
+  --owner=dcplaya \
   --repository=home-cluster \
   --path=cluster \
   --personal \

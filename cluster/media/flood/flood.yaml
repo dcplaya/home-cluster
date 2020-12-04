@@ -31,21 +31,22 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "internal"
       hosts:
-      - host: flood.devbu.io
+      - host: flood.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "flood.devbu.io"
+        - "flood.media.elcarpenter.com"
     persistence:
       data:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "1Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: data
+        existingClaim: config-flood
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "1Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: data
     resources:
       requests:
         memory: 250Mi

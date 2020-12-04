@@ -23,25 +23,32 @@ spec:
       tag: v0.9.0.7
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "internal"
       hosts:
-      - host: bazarr.devbu.io
+      - host: bazarr.media.elcarpenter.com
+        paths:
+        - path: /
+          pathType: Prefix
+      - host: subtitles.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "bazarr.devbu.io"
+        - "bazarr.media.elcarpenter.com"
+      - hosts:
+        - "subtitles.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "5Gi"
+        existingClaim: config-bazarr
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "5Gi"
     podAnnotations:
       backup.velero.io/backup-volumes: config
     additionalVolumeMounts:

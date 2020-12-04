@@ -23,7 +23,7 @@ spec:
       service:
         type: LoadBalancer
         externalIPs:
-        - 192.168.69.101
+        - 10.201.50.51
         externalTrafficPolicy: Local
       publishService:
         enabled: true
@@ -39,7 +39,7 @@ spec:
           enabled: true
           namespace: kube-system
       extraArgs:
-        default-ssl-certificate: "kube-system/devbu-io-tls"
+        default-ssl-certificate: "kube-system/elcarpenter-com-tls"
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

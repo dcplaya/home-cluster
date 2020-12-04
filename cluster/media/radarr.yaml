@@ -23,7 +23,7 @@ spec:
       tag: v3.0.0.4204
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:
@@ -39,46 +39,47 @@ spec:
         #   allow 10.0.0.0/8;
         #   deny all;
       hosts:
-      - host: radarr.devbu.io
+      - host: movies.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "radarr.devbu.io"
+        - "movies.media.elcarpenter.com"
       additionalIngresses:
       - enabled: true
         nameSuffix: "api"
         annotations:
           kubernetes.io/ingress.class: "external"
         hosts:
-        - host: radarr.devbu.io
+        - host: movies.media.elcarpenter.com
           paths:
           - path: /api
             pathType: Prefix
         tls:
         - hosts:
-          - "radarr.devbu.io"
+          - "movies.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "25Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
+        existingClaim: config-radarr
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "25Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
-    - name: media-rocinante
-      mountPath: "/media-rocinante"
-    - name: media-serenity
-      mountPath: "/media-serenity"
+    - name: nfs-nas-merged-media-pvc
+      mountPath: "/mnt/unionfs"
+    # - name: media-serenity
+    #   mountPath: "/media-serenity"
     additionalVolumes:
-    - name: media-rocinante
+    - name: nfs-nas-merged-media-pvc
       persistentVolumeClaim:
-        claimName: nfs-media-rocinante-pvc
-    - name: media-serenity
-      persistentVolumeClaim:
-        claimName: nfs-media-serenity-pvc
+        claimName: nfs-nas-merged-media-pvc
+    # - name: media-serenity
+    #   persistentVolumeClaim:
+    #     claimName: nfs-media-serenity-pvc
     resources:
       requests:
         memory: 250Mi

@@ -36,16 +36,17 @@ spec:
           pathType: Prefix
       tls:
       - hosts:
-        - "node-red.devbu.io"
+        - "node-red.home.elcarpenter.com"
     persistence:
       data:
         enabled: true
         mountPath: /data
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "5Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: data
+        existingClaim: config-node-red
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "5Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: data
     resources:
       requests:
         memory: 250Mi

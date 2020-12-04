@@ -23,14 +23,14 @@ spec:
       tag: v4.2.5
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     service:
       additionalServices:
       - enabled: true
         nameSuffix: bittorrent
         type: LoadBalancer
         externalIPs:
-        - 192.168.69.130
+        - 10.201.70.44
         port:
           port: 50413
           name: bittorrent
@@ -42,21 +42,21 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - host: qb.devbu.io
+      - host: qb.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "qb.devbu.io"
+        - "qb.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
+        storageClass: "longhorn"
         accessMode: ReadWriteOnce
         size: "5Gi"
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
     - name: media-rocinante
       mountPath: "/media-rocinante"

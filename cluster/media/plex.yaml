@@ -26,27 +26,28 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - "plex.devbu.io"
+      - "plex.media.elcarpenter.com"
       tls:
       - hosts:
-        - "plex.devbu.io"
-    advertiseIp: "http://192.168.69.140:32400"
-    timezone: "America/New_York"
+        - "plex.media.elcarpenter.com"
+    advertiseIp: "https://media.elcarpenter.com:443"
+    timezone: "America/Los_Angeles"
     serviceTCP:
       type: LoadBalancer
       externalIPs:
-      - 192.168.69.140
+      - 10.201.70.20
       externalTrafficPolicy: Local
     serviceUDP:
       type: LoadBalancer
       externalIPs:
-      - 192.168.69.140
+      - 10.201.70.20
       externalTrafficPolicy: Local
     persistence:
       config:
-        storageClass: "rook-ceph-block"
-        size: 250Gi
-        accessMode: ReadWriteOnce
+        existingClaim: config-jackett
+        # storageClass: "longhorn"
+        # size: 250Gi
+        # accessMode: ReadWriteOnce
       transcode:
         enabled: false
         emptyDir:
@@ -54,10 +55,11 @@ spec:
       data:
         enabled: false
       extraMounts:
-      - name: media-rocinante
-        claimName: nfs-media-rocinante-pvc
-      - name: media-serenity
-        claimName: nfs-media-serenity-pvc
+      - name: media
+        claimName: nfs-nas-merged-media-pvc
+        mountPath: mnt/unionfs
+      # - name: media-serenity
+      #   claimName: nfs-media-serenity-pvc
     podAnnotations:
       backup.velero.io/backup-volumes: config
     logging:
@@ -73,12 +75,14 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-              - k8s-worker-d
-              - k8s-worker-e
+              - node04
+              # - k8s-worker-e
     resources:
       requests:
-        cpu: 4000m
+        ## 1000m = 1 core
+        ## Setting request high enough so this doesnt get scheduled on i3 NUCs
+        cpu: 8000m
         memory: 12000Mi
       limits:
         gpu.intel.com/i915: 1
-        memory: 24000Mi
+        memory: 12000Mi

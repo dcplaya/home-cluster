@@ -23,25 +23,26 @@ spec:
       tag: v4.0.731
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - host: ombi.devbu.io
+      - host: requests.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "ombi.devbu.io"
+        - "requests.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: "1Gi"
+        existingClaim: config-ombi
+        # storageClass: "longhorn"
+        # accessMode: ReadWriteOnce
+        # size: "1Gi"
     podAnnotations:
       backup.velero.io/backup-volumes: config
     resources:

@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: sonarr-4k
   namespace: media
 spec:
   interval: 5m
@@ -39,30 +39,30 @@ spec:
         #   allow 10.0.0.0/8;
         #   deny all;
       hosts:
-      - host: tv.media.elcarpenter.com
+      - host: 4ktv.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "tv.media.elcarpenter.com"
+        - "4ktv.media.elcarpenter.com"
       additionalIngresses:
       - enabled: true
         nameSuffix: "api"
         annotations:
           kubernetes.io/ingress.class: "external"
         hosts:
-        - host: tv.media.elcarpenter.com
+        - host: 4ktv.media.elcarpenter.com
           paths:
           - path: /api
             pathType: Prefix
         tls:
         - hosts:
-          - "tv.media.elcarpenter.com"
+          - "4ktv.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        existingClaim: config-sonarr
+        existingClaim: config-4ksonarr
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "25Gi"
