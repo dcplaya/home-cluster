@@ -12,7 +12,7 @@ spec:
     name: flux-system
   url: ssh://git@github.com/dcplaya/home-cluster
   # ignore: |
-  #   # exclude all
+  #   # exclude
   #   /cluster/actions-runner-system/*
       
 ---
