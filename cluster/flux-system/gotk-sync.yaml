@@ -11,9 +11,9 @@ spec:
   secretRef:
     name: flux-system
   url: ssh://git@github.com/dcplaya/home-cluster
-  ignore: |
-    # exclude all
-    /cluster/actions-runner-system/*
+  # ignore: |
+  #   # exclude all
+  #   /cluster/actions-runner-system/*
       
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
