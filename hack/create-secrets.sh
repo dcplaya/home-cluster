@@ -139,7 +139,7 @@ echo "---" >>"${GENERATED_SECRETS}"
 kubectl create secret generic longhorn-backup-secret \
     --from-literal=AWS_ACCESS_KEY_ID="${MINIO_ACCESS_KEY}" \
     --from-literal=AWS_SECRET_ACCESS_KEY="${MINIO_SECRET_KEY}" \
-    --from-literal=AWS_ENDPOINTS="http://192.168.1.39:9000" \
+    --from-literal=AWS_ENDPOINTS="${AWS_ENDPOINTS}" \
     --namespace longhorn-system --dry-run=client -o json |
     kubeseal --format=yaml --cert="${PUB_CERT}" \
         >>"${GENERATED_SECRETS}"
