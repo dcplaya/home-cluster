@@ -4,3 +4,4 @@ resources:
 - ./gotk-components.yaml
 - ./gotk-sync.yaml
 - ./helm-chart-repositories/kubernetes-stable-charts.yaml
+- ./helm-chart-repositories/k8s-at-home-charts.yaml
