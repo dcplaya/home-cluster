@@ -62,7 +62,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: config-4ksonarr
+        existingClaim: config-sonarr-4k
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "25Gi"

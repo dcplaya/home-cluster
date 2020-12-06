@@ -62,7 +62,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: config-4kradarr
+        existingClaim: config-radarr-4k
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "25Gi"
