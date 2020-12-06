@@ -2,29 +2,26 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: home-cluster
+  name: flux-system
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 1m0s
   ref:
     branch: main
-  url: https://github.com/dcplaya/home-cluster.git
-  ignore: |
-    # exclude all
-    /*
-    # include deploy dir
-    !/cluster/
-    /cluster/**/*.md
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/dcplaya/home-cluster
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: home-cluster
+  name: flux-system
   namespace: flux-system
 spec:
-  interval: 1m
-  path: './cluster/'
+  interval: 10m0s
+  path: ./cluster
+  prune: true
   sourceRef:
     kind: GitRepository
-    name: home-cluster
-  prune: true
+    name: flux-system
+  validation: client
