@@ -77,21 +77,22 @@ kubectl create secret generic controller-manager \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
-# uptimerobot heartbeat
-kubectl create secret generic uptimerobot-heartbeat \
-    --from-literal=url="${UPTIMEROBOT_HEARTBEAT_URL}" \
-    --namespace monitoring --dry-run=client -o json |
-    kubeseal --format=yaml --cert="${PUB_CERT}" \
-        >>"${GENERATED_SECRETS}"
-echo "---" >>"${GENERATED_SECRETS}"
-
-# flux discord
-kubectl create secret generic discord-webhook \
-    --from-literal=address="${FLUX_DISCORD_WEBHOOK}" \
-    --namespace flux-system --dry-run=client -o json |
-    kubeseal --format=yaml --cert="${PUB_CERT}" \
-        >>"${GENERATED_SECRETS}"
-echo "---" >>"${GENERATED_SECRETS}"
+# 
+# # uptimerobot heartbeat
+# kubectl create secret generic uptimerobot-heartbeat \
+#     --from-literal=url="${UPTIMEROBOT_HEARTBEAT_URL}" \
+#     --namespace monitoring --dry-run=client -o json |
+#     kubeseal --format=yaml --cert="${PUB_CERT}" \
+#         >>"${GENERATED_SECRETS}"
+# echo "---" >>"${GENERATED_SECRETS}"
+# 
+# # flux discord
+# kubectl create secret generic discord-webhook \
+#     --from-literal=address="${FLUX_DISCORD_WEBHOOK}" \
+#     --namespace flux-system --dry-run=client -o json |
+#     kubeseal --format=yaml --cert="${PUB_CERT}" \
+#         >>"${GENERATED_SECRETS}"
+# echo "---" >>"${GENERATED_SECRETS}"
 
 # qbittorrent credentials
 kubectl create secret generic qbittorrent \
@@ -102,13 +103,13 @@ kubectl create secret generic qbittorrent \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
-# gitea personal access token
-kubectl create secret generic gitea-pat \
-    --from-literal=token="${GITEA_PAT}" \
-    --namespace velero --dry-run=client -o json |
-    kubeseal --format=yaml --cert="${PUB_CERT}" \
-        >>"${GENERATED_SECRETS}"
-echo "---" >>"${GENERATED_SECRETS}"
+# # gitea personal access token
+# kubectl create secret generic gitea-pat \
+#     --from-literal=token="${GITEA_PAT}" \
+#     --namespace velero --dry-run=client -o json |
+#     kubeseal --format=yaml --cert="${PUB_CERT}" \
+#         >>"${GENERATED_SECRETS}"
+# echo "---" >>"${GENERATED_SECRETS}"
 
 # # sonarr episode prune - default namespace
 # kubectl create secret generic sonarr-episode-prune \
@@ -135,22 +136,22 @@ echo "---" >>"${GENERATED_SECRETS}"
 # echo "---" >>"${GENERATED_SECRETS}"
 
 # longhorn backup secret
-# kubectl create secret generic longhorn-backup-secret \
-#     --from-literal=AWS_ACCESS_KEY_ID="${MINIO_ACCESS_KEY}" \
-#     --from-literal=AWS_SECRET_ACCESS_KEY="${MINIO_SECRET_KEY}" \
-#     --from-literal=AWS_ENDPOINTS="http://192.168.1.39:9000" \
-#     --namespace longhorn-system --dry-run=client -o json |
-#     kubeseal --format=yaml --cert="${PUB_CERT}" \
-#         >>"${GENERATED_SECRETS}"
-# echo "---" >>"${GENERATED_SECRETS}"
+kubectl create secret generic longhorn-backup-secret \
+    --from-literal=AWS_ACCESS_KEY_ID="${MINIO_ACCESS_KEY}" \
+    --from-literal=AWS_SECRET_ACCESS_KEY="${MINIO_SECRET_KEY}" \
+    --from-literal=AWS_ENDPOINTS="http://192.168.1.39:9000" \
+    --namespace longhorn-system --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
 
 # Remove empty new-lines
 sed -i '/^[[:space:]]*$/d' "${GENERATED_SECRETS}"
 
-# Validate Yaml
-if ! yq validate "${GENERATED_SECRETS}" >/dev/null 2>&1; then
-    echo "Errors in YAML"
-    exit 1
-fi
+# # Validate Yaml
+# if ! yq validate "${GENERATED_SECRETS}" >/dev/null 2>&1; then
+#     echo "Errors in YAML"
+#     exit 1
+# fi
 
 exit 0
