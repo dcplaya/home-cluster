@@ -11,3 +11,9 @@ flux bootstrap github \
   --personal \
   --network-policy=false
 ```
+
+
+Warning:
+
+DO NOT PUT ANYTHING IN THIS FOLDER WHEN USING BOOTSTRAP COMMAND ABOVE!!
+Placing other yamls in this folder will be ignored when using bootstrap
