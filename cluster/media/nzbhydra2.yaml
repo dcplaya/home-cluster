@@ -19,7 +19,7 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/nzbhydra2
+      repository: k8sathome/nzbhydra
       tag: v3.5.1
       pullPolicy: Always
     env:
