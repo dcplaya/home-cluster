@@ -58,7 +58,7 @@ spec:
               values:
               - node04
               # - k8s-worker-e
-              
+
     resources:
       requests:
         memory: 250Mi
