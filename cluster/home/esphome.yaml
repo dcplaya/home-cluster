@@ -1,0 +1,57 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: esphome
+  namespace: home
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: esphome
+      version: 3.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: esphome/esphome
+      tag: dev
+    env:
+      TZ: "America/Los_Angeles"
+      ESPHOME_DASHBOARD_USE_PING: true
+    hostNetwork: true
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "external"
+        nginx.ingress.kubernetes.io/auth-type: basic
+        nginx.ingress.kubernetes.io/auth-secret: media/nginx-basic-auth
+        nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+      hosts:
+      - host: esphome.home.elcarpenter.com
+        paths:
+        - path: /
+          pathType: Prefix
+      tls:
+      - hosts:
+        - "esphome.home.elcarpenter.com"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: config-esphome
+    #     storageClass: "rook-ceph-block"
+    #     accessMode: ReadWriteOnce
+    #     size: "1Gi"
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 500m
+      limits:
+        memory: 1500Mi
+        cpu: 2000m
