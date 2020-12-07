@@ -57,7 +57,7 @@ spec:
           pathType: Prefix
       tls:
       - hosts:
-      - "hyperion.home.elcarpenter.com"
+        - "hyperion.home.elcarpenter.com"
       # additionalIngresses:
       # - enabled: true
       #   nameSuffix: "api"
@@ -92,12 +92,12 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: NotIn
-                values:
-                - node04
-                # - k8s-worker-e
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node04
+              # - k8s-worker-e
               
     resources:
       requests:
