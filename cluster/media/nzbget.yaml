@@ -19,7 +19,7 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/nzbget
+      repository: linuxserver/nzbget
       tag: v21.0
       pullPolicy: Always
     env:

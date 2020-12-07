@@ -19,7 +19,7 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/sonarr
+      repository: linuxserver/sonarr
       tag: v3.0.4.1021
       pullPolicy: Always
     env:

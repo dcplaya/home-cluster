@@ -19,7 +19,7 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/ombi
+      repository: linuxserver/ombi
       tag: v4.0.731
       pullPolicy: Always
     env:
