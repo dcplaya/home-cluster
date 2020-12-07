@@ -35,7 +35,7 @@ spec:
         nginx.ingress.kubernetes.io/auth-secret: media/nginx-basic-auth
         nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
       hosts:
-      - host: node-red.devbu.io
+      - host: node-red.home.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
