@@ -39,8 +39,8 @@ spec:
             - name: TZ
               value: "America/Los_Angeles"
           volumeMounts:
-          - mountPath: /volume1/Media
-            name: media-pvc
+            - mountPath: /volume1/Media
+              name: media-pvc
           resources:
             requests:
               memory: 500Mi
@@ -49,6 +49,6 @@ spec:
               memory: 2000Mi
               cpu: 1000m
       volumes:
-      - name: media-pvc
-        persistentVolumeClaim:
-          claimName: nfs-nas-media-pvc
+        - name: media-pvc
+          persistentVolumeClaim:
+            claimName: nfs-nas-media-pvc
