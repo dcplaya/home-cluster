@@ -27,30 +27,30 @@ spec:
             image: pfidr/rclone:latest
             imagePullPolicy: IfNotPresent
             env:
-              - name: TZ
-                value: "America/Los_Angeles"
+            - name: TZ
+              value: "America/Los_Angeles"
             command:
-              - "rclone"
-              - "-vv"
-              - "--config"
-              - "/config/rclone.conf"
-              - "sync"
-              - "--ignore-errors"
-              - "--fast-list"
-              - "--b2-hard-delete"
-              - "--transfers"
-              - "50"
-              - "--checkers"
-              - "50"
-              - "--bwlimit"
-              - "250M"
-              - "backblaze-longhorn-crypt:/"
-              - "minio:longhorn"
+            - "rclone"
+            - "-vv"
+            - "--config"
+            - "/config/rclone.conf"
+            - "sync"
+            - "--ignore-errors"
+            - "--fast-list"
+            - "--b2-hard-delete"
+            - "--transfers"
+            - "50"
+            - "--checkers"
+            - "50"
+            - "--bwlimit"
+            - "250M"
+            - "backblaze-longhorn-crypt:/"
+            - "minio:longhorn"
             volumeMounts:
-              - mountPath: /config
-                name: rclone-sync-backup
-                subPath: rclone
-                readOnly: false
+            - mountPath: /config
+              name: rclone-sync-backup
+              subPath: rclone
+              readOnly: false
           restartPolicy: Never
           volumes:
           # Location of rclone.conf
