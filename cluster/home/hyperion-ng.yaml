@@ -30,11 +30,13 @@ spec:
       port:
         port: 8090
       additionalPorts:
-      - protocol: TCP
-        port: 19444
+      - port: 19444
+        name: service1
+        protocol: TCP
         targetPort: 19444
-      - protocol: TCP
-        port: 19445
+      - port: 19445
+        name: service2
+        protocol: TCP
         targetPort: 19445
     ingress:
       enabled: true
