@@ -62,12 +62,12 @@ spec:
       #   claimName: nfs-media-serenity-pvc
 
     affinity:
-      nodeAntiAffinity:
+      nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
             - key: kubernetes.io/hostname
-              operator: In
+              operator: NotIn
               values:
               - node04
               # - k8s-worker-e

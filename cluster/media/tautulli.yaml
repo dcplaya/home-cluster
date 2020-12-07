@@ -49,12 +49,12 @@ spec:
     #   backup.velero.io/backup-volumes: config
 
     affinity:
-      nodeAntiAffinity:
+      nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
             - key: kubernetes.io/hostname
-              operator: In
+              operator: NotIn
               values:
               - node04
               # - k8s-worker-e
