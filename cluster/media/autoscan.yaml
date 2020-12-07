@@ -28,7 +28,7 @@ spec:
       PGID: "100"
     service:
       port:
-        port: 7878
+        port: 3030
     ingress:
       enabled: false
       annotations:
