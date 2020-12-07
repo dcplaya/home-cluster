@@ -49,7 +49,7 @@ spec:
       externalTrafficPolicy: Local
     persistence:
       config:
-        existingClaim: config-plex
+        claimName: config-plex
         # storageClass: "longhorn"
         # size: 250Gi
         # accessMode: ReadWriteOnce
@@ -65,8 +65,8 @@ spec:
         mountPath: mnt/unionfs
       # - name: media-serenity
       #   claimName: nfs-media-serenity-pvc
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
     logging:
       promtail:
         enabled: false
