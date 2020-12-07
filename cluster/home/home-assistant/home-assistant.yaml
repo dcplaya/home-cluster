@@ -25,7 +25,9 @@ spec:
       tag: dev
     extraEnv:
       TZ: "America/Los_Angeles"
-
+      PUID: "1000"
+      PGID: "100"
+      
     hostNetwork: true
     service:
       type: LoadBalancer

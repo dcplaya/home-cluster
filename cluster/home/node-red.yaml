@@ -22,7 +22,9 @@ spec:
       tag: 1.2.5
       pullPolicy: Always
     env:
-      TZ: "America/New_York"
+      TZ: "America/Los_Angeles"
+      PUID: "1000"
+      PGID: "100"
       NODE_RED_ENABLE_PROJECTS: "true"
       NODE_RED_ENABLE_SAFE_MODE: "false"
     ingress:
