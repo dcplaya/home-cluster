@@ -51,13 +51,13 @@ spec:
         #   allow 10.0.0.0/8;
         #   deny all;
       hosts:
-      - host: hyperion.home.elcarpenter.com
-        paths:
-        - path: /
-          pathType: Prefix
+        - host: hyperion.home.elcarpenter.com
+          paths:
+          - path: /
+            pathType: Prefix
       tls:
-      - hosts:
-        - "hyperion.home.elcarpenter.com"
+        - hosts:
+          - "hyperion.home.elcarpenter.com"
       # additionalIngresses:
       # - enabled: true
       #   nameSuffix: "api"
@@ -92,12 +92,12 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: NotIn
-              values:
-              - node04
-              # - k8s-worker-e
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                - node04
+                # - k8s-worker-e
               
     resources:
       requests:
