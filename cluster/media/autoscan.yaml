@@ -26,6 +26,23 @@ spec:
       TZ: "America/Los_Angeles"
       PUID: "1000"
       PGID: "100"
+    # Probes configuration
+    probes:
+      liveness:
+        enabled: false
+        initialDelaySeconds: 30
+        failureThreshold: 5
+        timeoutSeconds: 10
+      readiness:
+        enabled: false
+        initialDelaySeconds: 30
+        failureThreshold: 5
+        timeoutSeconds: 10
+      startup:
+        enabled: false
+        initialDelaySeconds: 5
+        failureThreshold: 30
+        periodSeconds: 10
     ingress:
       enabled: false
       annotations:
@@ -42,7 +59,7 @@ spec:
         #   allow 10.0.0.0/8;
         #   deny all;
       hosts:
-      - host: sutoscan.media.elcarpenter.com
+      - host: autoscan.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
