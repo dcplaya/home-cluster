@@ -74,17 +74,12 @@ spec:
     # podAnnotations:
     #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
-    - name: media-rocinante
-      mountPath: "/media-rocinante"
-    - name: media-serenity
-      mountPath: "/media-serenity"
+    - name: nfs-nas-merged-media-pvc
+      mountPath: "/mnt/unionfs"
     additionalVolumes:
-    - name: media-rocinante
+    - name: nfs-nas-merged-media-pvc
       persistentVolumeClaim:
-        claimName: nfs-media-rocinante-pvc
-    - name: media-serenity
-      persistentVolumeClaim:
-        claimName: nfs-media-serenity-pvc
+        claimName: nfs-nas-merged-media-pvc
     resources:
       requests:
         memory: 250Mi
