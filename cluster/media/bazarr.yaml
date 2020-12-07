@@ -19,8 +19,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/bazarr
-      tag: v0.9.0.7
+      repository: linuxserver/bazarr
+      tag: development
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

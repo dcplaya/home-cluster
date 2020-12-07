@@ -20,7 +20,7 @@ spec:
     controllerType: deployment
     image:
       repository: linuxserver/nzbhydra
-      tag: v3.5.1
+      tag: latest
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

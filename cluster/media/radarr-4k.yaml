@@ -20,7 +20,7 @@ spec:
     controllerType: deployment
     image:
       repository: linuxserver/radarr
-      tag: v3.0.0.4204
+      tag: latest
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

@@ -20,7 +20,7 @@ spec:
     controllerType: deployment
     image:
       repository: linuxserver/lidarr
-      tag: v0.8.0.1918
+      tag: 0.8.0.1920-ls5
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

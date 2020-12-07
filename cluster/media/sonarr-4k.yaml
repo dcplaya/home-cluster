@@ -20,7 +20,7 @@ spec:
     controllerType: deployment
     image:
       repository: linuxserver/sonarr
-      tag: v3.0.4.1021
+      tag: preview
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

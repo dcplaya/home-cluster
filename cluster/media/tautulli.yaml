@@ -19,8 +19,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/tautulli
-      tag: v2.6.1
+      repository: linuxserver/tautulli
+      tag: amd64-develop
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
