@@ -36,8 +36,8 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "external"
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-      hosts: 
-        - unifi.network.elcarpenter.com
+      hosts:
+      - unifi.network.elcarpenter.com
       tls:
       - hosts:
         - unifi.network.elcarpenter.com
@@ -56,13 +56,13 @@ spec:
       enabled: true
       type: LoadBalancer
       loadBalancerIP: 10.201.90.11
-#      annotations:
-#        metallb.universe.tf/allow-shared-ip: unifi
+      # annotations:
+      #   metallb.universe.tf/allow-shared-ip: unifi
       ingress:
         enabled: true
       annotations:
         kubernetes.io/ingress.class: "nginx"
-#        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     controllerService:
       type: LoadBalancer
       loadBalancerIP: 10.201.90.10
