@@ -2,15 +2,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: nzbget
+  name: bazarr
   namespace: media
 spec:
   interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: nzbget
-      version: 6.7.0
+      chart: bazarr
+      version: 4.8.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -19,8 +19,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: k8sathome/nzbget
-      tag: v21.0
+      repository: k8sathome/bazarr
+      tag: v0.9.0.7
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
@@ -29,40 +29,40 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: "external"
+        kubernetes.io/ingress.class: "internal"
       hosts:
-      - host: usenet.media.elcarpenter.com
+      - host: bazarr.media.elcarpenter.com
+        paths:
+        - path: /
+          pathType: Prefix
+      - host: subtitles.media.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "usenet.media.elcarpenter.com"
+        - "bazarr.media.elcarpenter.com"
+      - hosts:
+        - "subtitles.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
-        existingClaim: config-nzbget
+        existingClaim: config-bazarr
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
-        # size: "1Gi"
+        # size: "5Gi"
     # podAnnotations:
     #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
-    - name: nfs-media
+    - name: nfs-nas-merged-media-pvc
       mountPath: "/mnt/unionfs"
-    - name: downloads
-      mountPath: "/downloads"
     additionalVolumes:
-    - name: nfs-media
+    - name: nfs-nas-merged-media-pvc
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
-    - name: downloads
-      emptyDir: {}
-      # persistentVolumeClaim:
-      #   claimName: nfs-media-serenity-pvc
     resources:
       requests:
         memory: 250Mi
         cpu: 500m
       limits:
-        memory: 7500Mi
+        memory: 1500Mi
