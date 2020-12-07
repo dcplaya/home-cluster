@@ -19,7 +19,7 @@ txt=$(find "${CLUSTER_ROOT}" -type f -name "*.txt")
 if [[ ( -n $txt ) ]];
 then
     # shellcheck disable=SC2129
-    printf "%s\n%s\n%s\n" "#" "# Auto-generated helm secrets -- DO NOT EDIT." "#" >> "${GENERATED_SECRETS}"
+    printf "%s\n%s\n%s\n" "#" "# Auto-generated helm secrets -- DO NOT EDIT." "#" "---" >> "${GENERATED_SECRETS}"
 
     for file in "${CLUSTER_ROOT}"/**/*.txt; do
         # Get the path and basename of the txt file
