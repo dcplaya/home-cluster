@@ -19,7 +19,7 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: linuxserver/cloudb0x
+      repository: cloudb0x/autoscan
       tag: latest
       pullPolicy: Always
     env:
