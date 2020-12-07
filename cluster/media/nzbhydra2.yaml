@@ -41,7 +41,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: config-nzbhydra2
+        existingClaim: config-nzbhydra
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "1Gi"
