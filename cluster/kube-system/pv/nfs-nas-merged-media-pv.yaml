@@ -6,7 +6,7 @@ metadata:
   annotations:
     fluxcd.io/ignore: "false"
 spec:
-  storageClassName: media
+  storageClassName: merged-media
   capacity:
     storage: 1Mi
   accessModes:
