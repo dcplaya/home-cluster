@@ -2,7 +2,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: media-management
+  namespace: media
   name: cloudplow-uploader
   annotations:
     fluxcd.io/ignore: "false"
