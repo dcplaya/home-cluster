@@ -84,5 +84,3 @@ spec:
         cpu: 15m
       limits:
         memory: 750Mi
-  valueFileSecrets:
-  - name: "unifi-helm-values"
