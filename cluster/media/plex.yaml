@@ -30,7 +30,7 @@ spec:
       tls:
       - hosts:
         - "plex.media.elcarpenter.com"
-        
+
     advertiseIp: "https://plex.media.elcarpenter.com:443"
     timezone: "America/Los_Angeles"
     ## Set the IDs for proper NAS sharing
