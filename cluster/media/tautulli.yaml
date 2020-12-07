@@ -47,6 +47,18 @@ spec:
         # size: "10Gi"
     # podAnnotations:
     #   backup.velero.io/backup-volumes: config
+
+    affinity:
+      nodeAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+              - node04
+              # - k8s-worker-e
+              
     resources:
       requests:
         memory: 250Mi
