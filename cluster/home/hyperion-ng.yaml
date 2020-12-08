@@ -37,15 +37,15 @@ spec:
         port: 8090
       additionalPorts:
       - port: 19444
-        name: JSONService
+        name: jsonservice
         protocol: TCP
         targetPort: 19444
       - port: 19445
-        name: ProtocolBuffersService
+        name: protocolbufferservice
         protocol: TCP
         targetPort: 19445
       - port: 19333
-        name: BobLightService
+        name: boblightervice
         protocol: TCP
         targetPort: 19333
     ingress:
