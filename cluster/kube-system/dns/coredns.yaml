@@ -28,7 +28,7 @@ spec:
       externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: cluster.elcarpenter.com.
+      - zone: .
         scheme: dns://
         # use_tcp: true
       port: 53
