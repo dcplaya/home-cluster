@@ -77,12 +77,11 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "25Gi"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
-    additionalVolumeMounts:
+
+    # additionalVolumeMounts:
     # - name: media-serenity
     #   mountPath: "/media-serenity"
-    additionalVolumes:
+    # additionalVolumes:
     # - name: media-serenity
     #   persistentVolumeClaim:
     #     claimName: nfs-media-serenity-pvc
