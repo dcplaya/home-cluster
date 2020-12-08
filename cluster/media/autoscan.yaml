@@ -51,19 +51,6 @@ spec:
       tls:
       - hosts:
         - "autoscan.media.elcarpenter.com"
-      # additionalIngresses:
-      # - enabled: true
-      #   nameSuffix: "api"
-      #   annotations:
-      #     kubernetes.io/ingress.class: "external"
-      #   hosts:
-      #   - host: movies.media.elcarpenter.com
-      #     paths:
-      #     - path: /api
-      #       pathType: Prefix
-      #   tls:
-      #   - hosts:
-      #     - "movies.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
