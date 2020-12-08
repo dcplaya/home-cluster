@@ -28,7 +28,34 @@ spec:
       externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: .
+      - zone: .media.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .home.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .network.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .auth.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .backup.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .dashboards.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .devops.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .monitoring.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .storage.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .unifi.elcarpenter.com.
         scheme: dns://
         # use_tcp: true
       port: 53
