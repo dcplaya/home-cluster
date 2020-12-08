@@ -27,7 +27,7 @@ spec:
   - name: https
     port: 443
   externalIPs:
-    - 10.10.1.2
+  - 10.10.1.2
 #  type: ExternalName
 #  externalName: 10.10.1.2
 ---
@@ -36,9 +36,9 @@ kind: Endpoints
 metadata:
   name: external-drew-es1
 subsets:
- - addresses:
-     - ip: 10.10.1.2
-   ports:
-     - name: https
-       port: 443
-       protocol: TCP
+- addresses:
+  - ip: 10.10.1.2
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
