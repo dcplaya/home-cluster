@@ -1,15 +1,15 @@
 {
   "enabled": true,
-  "timezone": "America/New_York",
+  "timezone": "America/Los_Angeles",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "commitMessageSuffix": "[ci-skip]",
-  "commitBody": "Signed-off-by: Devin Buhl <onedr0p@users.noreply.github.com>",
+  "commitBody": "Signed-off-by: Drew Carpenter <dcplaya@users.noreply.github.com>",
   // do not notify on closed, unmerged PRs
   "suppressNotifications": ["prIgnoreNotification"],
   // do not rebase PRs
   "rebaseWhen": "conflicted",
-  "assignees": ["@onedr0p"],
+  "assignees": ["@dcplaya"],
   "helm-values": {
     "fileMatch": ["cluster/.+\\.yaml$"]
   },
