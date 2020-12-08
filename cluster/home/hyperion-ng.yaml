@@ -27,29 +27,32 @@ spec:
       PUID: "1000"
       PGID: "100"
     service:
-      additionalServices:
-      - enabled: true
-        nameSuffix: hyperion-ng
-        type: LoadBalancer
-        externalIPs:
-        - 10.201.40.70
-        port:
-          port: 19445
-          name: protobufservice
-          protocol: TCP
-          targetPort: 19445
-        externalTrafficPolicy: Local
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.40.70
       port:
         port: 8090
+      # additionalServices:
+      # - enabled: true
+      #   nameSuffix: protobufservice
+      #   type: LoadBalancer
+      #   externalIPs:
+      #   - 10.201.40.70
+      #   port:
+      #     port: 19445
+      #     name: protobufservice
+      #     protocol: TCP
+      #     targetPort: 19445
+      #   externalTrafficPolicy: Local
       additionalPorts:
       - port: 19444
         name: jsonservice
         protocol: TCP
         targetPort: 19444
-      - port: 19445
-        name: protobufservice
-        protocol: TCP
-        targetPort: 19445
+      # - port: 19445
+      #   name: protobufservice
+      #   protocol: TCP
+      #   targetPort: 19445
       - port: 19333
         name: boblightservice
         protocol: TCP
