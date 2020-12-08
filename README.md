@@ -29,7 +29,7 @@ See my project over at [home-operations](https://github.com/onedr0p/home-operati
 - [Kured](https://github.com/weaveworks/kured) to apply OS patches to my nodes.
 - [System Controller Upgrader](https://github.com/rancher/system-upgrade-controller) to apply updates to Kubernetes.
 - [Renovate](https://github.com/renovatebot/renovate) keeps my application charts and container images up-to-date by scanning my repo and opening pull requests when it notices updates.
-- [Actions Runner Controller](https://github.com/summerwind/actions-runner-controller) operates a self-hosted Github runner in my cluster which I use to generate and apply Sealed Secrets to my cluster.
+- [Actions Runner Controller](https://github.com/summerwind/actions-runner-controller) operates a self-hosted Github runner in my cluster which I use to generate and apply Sealed Secrets to my cluster. [Generate](https://github.com/marketplace/actions/github-action-to-unlock-git-crypt-secrets) your Git-Crypt key and save it in the Github secrets as `GIT_CRYPT_KEY`
 
 ## :globe_with_meridians:&nbsp; Networking
 
