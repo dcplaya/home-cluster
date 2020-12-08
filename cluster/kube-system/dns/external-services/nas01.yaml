@@ -34,9 +34,10 @@ kind: Endpoints
 metadata:
   name: external-nas01
 subsets:
- - addresses:
-     - ip: 10.10.200.210
-   ports:
-     - name: http
-       port: 5000
-       protocol: TCP
+- addresses:
+  - ip: 10.10.200.210
+  ports:
+  - name: http
+    port: 5000
+    protocol: TCP
+

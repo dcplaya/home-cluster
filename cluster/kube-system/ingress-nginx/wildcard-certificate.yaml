@@ -24,4 +24,3 @@ spec:
   - '*.dashboard.elcarpenter.com'
   - '*.dashboards.elcarpenter.com'
   - '*.monitoring.elcarpenter.com'
-
