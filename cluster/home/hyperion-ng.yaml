@@ -29,7 +29,7 @@ spec:
     service:
       additionalServices:
       - enabled: true
-        nameSuffix: bittorrent
+        nameSuffix: hyperion-ng
         type: LoadBalancer
         externalIPs:
         - 10.201.40.70
