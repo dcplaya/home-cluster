@@ -49,10 +49,10 @@ spec:
         name: jsonservice
         protocol: TCP
         targetPort: 19444
-      # - port: 19445
-      #   name: protobufservice
-      #   protocol: TCP
-      #   targetPort: 19445
+      - port: 19445
+        name: protobufservice
+        protocol: TCP
+        targetPort: 19445
       - port: 19333
         name: boblightservice
         protocol: TCP
