@@ -27,12 +27,12 @@ spec:
       PUID: "1000"
       PGID: "100"
     service:
-      additionalServices:
-      - enabled: true
-        nameSuffix: hyperion-ng
-        type: LoadBalancer
-        externalIPs:
-        - 10.201.40.70
+      # additionalServices:
+      # - enabled: true
+      #   nameSuffix: hyperion-ng
+      #   type: LoadBalancer
+      #   externalIPs:
+      #   - 10.201.40.70
       port:
         port: 8090
       additionalPorts:
