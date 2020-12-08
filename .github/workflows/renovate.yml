@@ -27,5 +27,5 @@ jobs:
         author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
         commit-message: Create renovatebot helmrelease annotations
         body: |
-          Signed-off-by: Devin Buhl <onedr0p@users.noreply.github.com>
+          Signed-off-by: DCPlaya <dcplaya@users.noreply.github.com>
         labels: renovate/helm-release-annotations
