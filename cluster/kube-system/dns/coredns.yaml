@@ -28,12 +28,12 @@ spec:
       externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: .media.elcarpenter.com.
+      - zone: .
         scheme: dns://
         # use_tcp: true
-      - zone: .unifi.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
+      # - zone: .unifi.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
         # .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
       port: 53
       plugins:
