@@ -19,7 +19,7 @@ spec:
   values:
     rbac:
       create: true
-    replicaCount: 1
+    replicaCount: 3
     isClusterService: false
     serviceType: LoadBalancer
     service:
@@ -34,30 +34,30 @@ spec:
       - zone: .media.elcarpenter.com
         scheme: dns://
         # use_tcp: true
-      - zone: .unifi.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .home.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .network.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .backup.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .dashboards.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .devops.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .monitoring.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
-      - zone: .storage.elcarpenter.com.
-        scheme: dns://
-        # use_tcp: true
+      # - zone: .unifi.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .home.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .network.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .backup.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .dashboards.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .devops.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .monitoring.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
+      # - zone: .storage.elcarpenter.com.
+      #   scheme: dns://
+      #   # use_tcp: true
       port: 53
       plugins:
       - name: errors
@@ -73,6 +73,14 @@ spec:
           ttl 30
       - name: prometheus
         parameters: 0.0.0.0:9153
+      # - name: forward
+      #   parameters: iot.elcarpenter.com 10.10.200.1
+      # - name: forward
+      #   parameters: lan.elcarpenter.com 10.10.200.1
+      # - name: forward
+      #   parameters: jeff.elcarpenter.com 10.10.16.1
+      # - name: forward
+      #   parameters: amber.elcarpenter.com 10.10.17.1
       - name: forward
         parameters: . /etc/resolv.conf
       - name: cache
@@ -81,7 +89,8 @@ spec:
       - name: reload
       - name: loadbalance
       - name: etcd
-        parameters: .media.elcarpenter.com .unifi.elcarpenter.com. .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
+        parameters: .media.elcarpenter.com
+        # .unifi.elcarpenter.com. .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
         configBlock: |-
           stubzones
           path /skydns
