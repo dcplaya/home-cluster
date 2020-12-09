@@ -28,13 +28,36 @@ spec:
       externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: .
-        scheme: dns://
-        # use_tcp: true
-      # - zone: .unifi.elcarpenter.com.
+      # - zone: .
       #   scheme: dns://
       #   # use_tcp: true
-        # .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
+      - zone: .media.elcarpenter.com
+        scheme: dns://
+        # use_tcp: true
+      - zone: .unifi.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .home.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .network.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .backup.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .dashboards.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .devops.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .monitoring.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
+      - zone: .storage.elcarpenter.com.
+        scheme: dns://
+        # use_tcp: true
       port: 53
       plugins:
       - name: errors
@@ -58,7 +81,7 @@ spec:
       - name: reload
       - name: loadbalance
       - name: etcd
-        parameters: devbu.io
+        parameters: .media.elcarpenter.com .unifi.elcarpenter.com. .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
         configBlock: |-
           stubzones
           path /skydns
