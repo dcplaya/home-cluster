@@ -31,7 +31,7 @@ spec:
       # - zone: .
       #   scheme: dns://
       #   # use_tcp: true
-      - zone: .media.elcarpenter.com
+      - zone: media.elcarpenter.com
         scheme: dns://
         # use_tcp: true
       # - zone: .unifi.elcarpenter.com.
@@ -89,7 +89,7 @@ spec:
       - name: reload
       - name: loadbalance
       - name: etcd
-        parameters: .media.elcarpenter.com
+        parameters: media.elcarpenter.com
         # .unifi.elcarpenter.com. .home.elcarpenter.com. .network.elcarpenter.com. .auth.elcarpenter.com. .backup.elcarpenter.com. .dashboards.elcarpenter.com. .devops.elcarpenter.com. .monitoring.elcarpenter.com. .storage.elcarpenter.com.
         configBlock: |-
           stubzones
