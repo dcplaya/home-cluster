@@ -1,4 +1,3 @@
-################ Adguard Home Config ###########################################
 configAsCode:
   enabled: true
   config:
@@ -188,4 +187,3 @@ configAsCode:
     log_file: ""
     verbose: false
     schema_version: 6
-##################### End Config ###############################################
