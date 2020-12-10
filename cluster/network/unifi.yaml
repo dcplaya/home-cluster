@@ -1,4 +1,4 @@
----
+Why---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -34,7 +34,7 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: "external"
+        kubernetes.io/ingress.class: "internal"
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       hosts:
       - unifi.network.elcarpenter.com
