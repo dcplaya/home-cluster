@@ -50,9 +50,9 @@ spec:
     persistence:
       data:
         enabled: true
-        emptyDir: true
-        # mountPath: /data
-        # existingClaim: config-node-red
+        # emptyDir: true
+        mountPath: /data
+        existingClaim: config-node-red
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "5Gi"
