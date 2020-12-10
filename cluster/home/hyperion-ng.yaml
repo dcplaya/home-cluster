@@ -17,6 +17,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    fullnameOverride: hyperion-ng
     controllerType: deployment
     image:
       repository: sirfragalot/hyperion.ng
