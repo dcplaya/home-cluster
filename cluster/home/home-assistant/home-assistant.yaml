@@ -86,24 +86,23 @@ spec:
               - plex
           topologyKey: "kubernetes.io/hostname"
 
-    postgresql:
-      enabled: true
-      # postgresqlUsername: home-assistant
-      postgresqlDatabase: homeassistant
-      persistence:
-        enabled: true
-        existingClaim: "database-home-assistant-postgre"
+    # postgresql:
+    #   enabled: true
+    #   # postgresqlUsername: home-assistant
+    #   postgresqlDatabase: homeassistant
+    #   persistence:
+    #     enabled: true
 
     influxdb:
       enabled: false
-      # architecture: standalone
-      # database: home_assistant
-      # authEnabled: false
-      # updateStrategy: Recreate
-      # persistence:
-      #   enabled: true
-      #   storageClass: "rook-ceph-block"
-      #   size: 8Gi
+      architecture: standalone
+      database: home_assistant
+      authEnabled: false
+      updateStrategy: Recreate
+      persistence:
+        enabled: true
+        storageClass: "longhorn"
+        size: 30Gi
 
     vscode:
       enabled: true
