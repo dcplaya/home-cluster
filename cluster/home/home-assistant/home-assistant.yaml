@@ -91,6 +91,7 @@ spec:
       postgresqlDatabase: homeassistant
       persistence:
         enabled: true
+        storageClass: "longhorn"
 
     influxdb:
       enabled: true
