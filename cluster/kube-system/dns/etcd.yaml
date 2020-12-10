@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     statefulset:
-      replicaCount: 3
+      replicaCount: 1
     auth:
       rbac:
         enabled: false
