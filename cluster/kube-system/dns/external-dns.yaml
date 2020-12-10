@@ -29,6 +29,10 @@ spec:
     - backup.elcarpenter.com
     - network.elcarpenter.com
     - auth.elcarpenter.com
+    - unifi.elcarpenter.com
+    - dashboards.elcarpenter.com
+    - devops.elcarpenter.com
+    - monitoring.elcarpenter.com
     createSecret: true
     crd:
       create: true
