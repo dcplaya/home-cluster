@@ -65,7 +65,7 @@ spec:
       - name: reload
       - name: loadbalance
       - name: etcd
-        parameters: media.elcarpenter.com unifi.elcarpenter.com home.elcarpenter.com network.elcarpenter.com auth.elcarpenter.com backup.elcarpenter.com dashboards.elcarpenter.com devops.elcarpenter.com monitoring.elcarpenter.com storage.elcarpenter.com 
+        parameters: media.elcarpenter.com unifi.elcarpenter.com home.elcarpenter.com network.elcarpenter.com auth.elcarpenter.com backup.elcarpenter.com dashboards.elcarpenter.com devops.elcarpenter.com monitoring.elcarpenter.com storage.elcarpenter.com
         configBlock: |-
           stubzones
           path /skydns
