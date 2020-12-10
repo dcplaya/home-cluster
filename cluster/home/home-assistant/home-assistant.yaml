@@ -86,12 +86,11 @@ spec:
               - plex
           topologyKey: "kubernetes.io/hostname"
 
-    # postgresql:
-    #   enabled: true
-    #   # postgresqlUsername: home-assistant
-    #   postgresqlDatabase: homeassistant
-    #   persistence:
-    #     enabled: true
+    postgresql:
+      enabled: true
+      postgresqlDatabase: homeassistant
+      persistence:
+        enabled: true
 
     influxdb:
       enabled: true
