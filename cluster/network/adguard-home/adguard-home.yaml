@@ -60,5 +60,6 @@ spec:
         memory: 750Mi
 
   # Include config as a RO configMap
-  valueFileSecrets:
-  - name: "adguard-home-dns01-config-helm-values"
+  valuesFrom:
+  - kind: Secret
+    name: "adguard-home-dns01-config-helm-values"
