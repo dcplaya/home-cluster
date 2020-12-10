@@ -92,7 +92,7 @@ spec:
       postgresqlDatabase: homeassistant
       persistence:
         enabled: true
-        storageClass: "longhorn"
+        existingClaim: "database-home-assistant-postgre"
 
     influxdb:
       enabled: false
