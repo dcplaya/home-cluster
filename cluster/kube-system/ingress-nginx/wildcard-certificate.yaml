@@ -1,0 +1,26 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: elcarpenter.com
+  namespace: kube-system
+spec:
+  secretName: elcarpenter-com-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "elcarpenter.com"
+  dnsNames:
+  - elcarpenter.com
+  - '*.elcarpenter.com'
+  - '*.media.elcarpenter.com'
+  - '*.home.elcarpenter.com'
+  - '*.network.elcarpenter.com'
+  - '*.admin.elcarpenter.com'
+  - '*.device.elcarpenter.com'
+  - '*.ide.elcarpenter.com'
+  - '*.backup.elcarpenter.com'
+  - '*.storage.elcarpenter.com'
+  - '*.dashboard.elcarpenter.com'
+  - '*.dashboards.elcarpenter.com'
+  - '*.monitoring.elcarpenter.com'
