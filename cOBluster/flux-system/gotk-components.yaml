@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: flux-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -11,7 +11,7 @@ kind: Role
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: crd-controller-flux-system
   namespace: flux-system
 rules:
@@ -59,7 +59,7 @@ kind: RoleBinding
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: crd-controller-flux-system
   namespace: flux-system
 roleRef:
@@ -76,7 +76,7 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: cluster-reconciler-flux-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -95,7 +95,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: buckets.source.toolkit.fluxcd.io
 spec:
   group: source.toolkit.fluxcd.io
@@ -280,7 +280,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: gitrepositories.source.toolkit.fluxcd.io
 spec:
   group: source.toolkit.fluxcd.io
@@ -491,7 +491,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: helmcharts.source.toolkit.fluxcd.io
 spec:
   group: source.toolkit.fluxcd.io
@@ -682,7 +682,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: helmrepositories.source.toolkit.fluxcd.io
 spec:
   group: source.toolkit.fluxcd.io
@@ -844,7 +844,7 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: source-controller
   namespace: flux-system
@@ -863,7 +863,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: source-controller
   namespace: flux-system
@@ -943,7 +943,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: kustomizations.kustomize.toolkit.fluxcd.io
 spec:
   group: kustomize.toolkit.fluxcd.io
@@ -1231,7 +1231,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: kustomize-controller
   namespace: flux-system
@@ -1308,7 +1308,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: helmreleases.helm.toolkit.fluxcd.io
 spec:
   group: helm.toolkit.fluxcd.io
@@ -1716,7 +1716,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: helm-controller
   namespace: flux-system
@@ -1791,7 +1791,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: alerts.notification.toolkit.fluxcd.io
 spec:
   group: notification.toolkit.fluxcd.io
@@ -1951,7 +1951,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: providers.notification.toolkit.fluxcd.io
 spec:
   group: notification.toolkit.fluxcd.io
@@ -2092,7 +2092,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
   name: receivers.notification.toolkit.fluxcd.io
 spec:
   group: notification.toolkit.fluxcd.io
@@ -2256,7 +2256,7 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: notification-controller
   namespace: flux-system
@@ -2275,7 +2275,7 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: webhook-receiver
   namespace: flux-system
@@ -2294,7 +2294,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: v0.5.3
+    app.kubernetes.io/version: latest
     control-plane: controller
   name: notification-controller
   namespace: flux-system
