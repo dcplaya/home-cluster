@@ -29,7 +29,7 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: "external"
+        kubernetes.io/ingress.class: "internal"
       hosts:
       - host: jackett.media.elcarpenter.com
         paths:
@@ -45,8 +45,6 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "1Gi"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
     resources:
       requests:
         memory: 250Mi
