@@ -49,7 +49,7 @@ spec:
     resources:
       requests:
         memory: 250Mi
-        cpu: 500m
+        cpu: 510m
       limits:
         memory: 1500Mi
   valuesFrom:
