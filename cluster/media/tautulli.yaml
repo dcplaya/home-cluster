@@ -45,8 +45,6 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "10Gi"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
 
     affinity:
       nodeAffinity:
@@ -62,6 +60,6 @@ spec:
     resources:
       requests:
         memory: 250Mi
-        cpu: 500m
+        cpu: 510m
       limits:
         memory: 1500Mi
