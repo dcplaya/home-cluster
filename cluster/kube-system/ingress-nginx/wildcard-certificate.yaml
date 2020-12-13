@@ -18,7 +18,7 @@ spec:
   - '*.network.elcarpenter.com'
   - '*.admin.elcarpenter.com'
   - '*.device.elcarpenter.com'
-  # - '*.ide.elcarpenter.com'
+  - '*.ide.elcarpenter.com'
   - '*.backup.elcarpenter.com'
   - '*.storage.elcarpenter.com'
   - '*.dashboard.elcarpenter.com'
