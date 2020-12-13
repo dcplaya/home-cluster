@@ -12,6 +12,15 @@ flux bootstrap github \
   --network-policy=false
 ```
 
+Does not work yet
+```
+flux install \
+  --version=latest \
+  --components=source-controller,kustomize-controller,helm-controller,notification-controller \
+  --namespace=flux-system \
+  --network-policy=false \
+  --arch=amd64
+```
 
 Warning:
 
