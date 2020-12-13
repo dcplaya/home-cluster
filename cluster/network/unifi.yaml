@@ -44,16 +44,17 @@ spec:
     unifiedService:
       enabled: false
       type: LoadBalancer
-      loadBalancerIP: 10.201.90.10
+      externalIPs:
+      - 10.201.70.20
     guiService:
       type: LoadBalancer
-      loadBalancerIP: 10.201.90.10
+      externalIPs:
+      - 10.201.70.20
     # captivePortalService:
     #   enabled: true
     #   type: LoadBalancer
-    #   loadBalancerIP: 10.201.90.11
-    #   # annotations:
-    #   #   metallb.universe.tf/allow-shared-ip: unifi
+    #   externalIPs:
+    #   - 10.201.70.20
     #   ingress:
     #     enabled: true
     #   annotations:
@@ -61,15 +62,16 @@ spec:
     #     # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     controllerService:
       type: LoadBalancer
-      loadBalancerIP: 10.201.90.10
+      externalIPs:
+      - 10.201.70.20
     stunService:
       type: LoadBalancer
-      loadBalancerIP: 10.201.90.10
+      externalIPs:
+      - 10.201.70.20
     # discoveryService:
     #   type: LoadBalancer
-    #   loadBalancerIP: 10.201.90.10
-    #   annotations:
-    #     metallb.universe.tf/allow-shared-ip: unifi
+    #   externalIPs:
+    #   - 10.201.70.20
     resources:
       requests:
         memory: 500Mi
