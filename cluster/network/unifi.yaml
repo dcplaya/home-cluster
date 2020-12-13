@@ -45,16 +45,16 @@ spec:
       enabled: false
       type: LoadBalancer
       externalIPs:
-      - 10.201.70.20
+      - 10.201.90.10
     guiService:
       type: LoadBalancer
       externalIPs:
-      - 10.201.70.20
+      - 10.201.90.10
     # captivePortalService:
     #   enabled: true
     #   type: LoadBalancer
     #   externalIPs:
-    #   - 10.201.70.20
+    #   - 10.201.90.10
     #   ingress:
     #     enabled: true
     #   annotations:
@@ -63,15 +63,15 @@ spec:
     controllerService:
       type: LoadBalancer
       externalIPs:
-      - 10.201.70.20
+      - 10.201.90.10
     stunService:
       type: LoadBalancer
       externalIPs:
-      - 10.201.70.20
+      - 10.201.90.10
     # discoveryService:
     #   type: LoadBalancer
     #   externalIPs:
-    #   - 10.201.70.20
+    #   - 10.201.90.10
     resources:
       requests:
         memory: 500Mi
