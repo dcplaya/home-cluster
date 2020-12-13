@@ -31,7 +31,7 @@ spec:
     - auth.elcarpenter.com
     - unifi.elcarpenter.com
     - dashboards.elcarpenter.com
-    - devops.elcarpenter.com
+    - dev.elcarpenter.com
     - monitoring.elcarpenter.com
     createSecret: true
     crd:
