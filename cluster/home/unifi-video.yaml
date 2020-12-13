@@ -89,6 +89,10 @@ spec:
         enabled: true
         existingClaim: config-unifi-video
         mountPath: /var/lib/unifi-video
+    shared:
+      enabled: true
+      emptyDir: true
+      mountPath: /var/cache/unifi-video
 
     additionalVolumeMounts:
     - name: video
