@@ -72,8 +72,8 @@ spec:
             - key: kubernetes.io/hostname
               operator: NotIn
               values:
+              - node00
               - node04
-              # - k8s-worker-e
 
     resources:
       requests:
