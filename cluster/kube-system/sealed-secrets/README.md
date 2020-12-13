@@ -5,5 +5,5 @@
 ## Fetch Sealed Secrets Cert
 
 ```bash
-kubeseal --controller-name sealed-secrets --fetch-cert > ./secrets/pub-cert.pem
+kubeseal --controller-name sealed-secrets --fetch-cert > ./sealed-secrets-public-cert.pem
 ```
