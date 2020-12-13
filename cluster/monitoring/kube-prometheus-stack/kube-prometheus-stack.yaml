@@ -61,7 +61,7 @@ spec:
       ingress:
         enabled: true
         annotations:
-          kubernetes.io/ingress.class: "external"
+          kubernetes.io/ingress.class: "internal"
         hosts:
         - "alert-manager.monitoring.elcarpenter.com"
         tls:
@@ -104,7 +104,7 @@ spec:
       ingress:
         enabled: true
         annotations:
-          kubernetes.io/ingress.class: "external"
+          kubernetes.io/ingress.class: "internal"
         hosts:
         - "grafana.monitoring.elcarpenter.com"
         tls:
@@ -159,10 +159,10 @@ spec:
             url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
             datasource: Prometheus
           apc-ups:
-            url: https://raw.githubusercontent.com/onedr0p/home-operations/main/grafana-dashboards/apc-ups.json
+            url: https://raw.githubusercontent.com/dcplaya/home-operations/main/grafana-dashboards/apc-ups.json
             datasource: Prometheus
           cyberpower-pdu:
-            url: https://raw.githubusercontent.com/onedr0p/home-operations/main/grafana-dashboards/cyberpower-pdu.json
+            url: https://raw.githubusercontent.com/dcplaya/home-operations/main/grafana-dashboards/cyberpower-pdu.json
             datasource: Prometheus
           # Ref: https://grafana.com/grafana/dashboards/11315
           unifi-client-insights:
@@ -199,11 +199,11 @@ spec:
         type: loki
         access: proxy
         url: http://loki:3100
-      # - name: home_assistant
-      #   type: influxdb
-      #   access: proxy
-      #   url: http://influxdb:8086
-      #   database: home_assistant
+      - name: home_assistant
+        type: influxdb
+        access: proxy
+        url: http://home-assistant-influxdb.home.svc:8086
+        database: home_assistant
       grafana.ini:
         paths:
           data: /var/lib/grafana/data
@@ -221,11 +221,11 @@ spec:
     kubeControllerManager:
       enabled: false
       endpoints:
-      - 192.168.42.100
+      - 10.10.200.50
     kubeScheduler:
       enabled: false
       endpoints:
-      - 192.168.42.100
+      - 10.10.200.50
     kubeProxy:
       enabled: false
     kubelet:
@@ -241,10 +241,10 @@ spec:
         annotations:
           kubernetes.io/ingress.class: "internal"
         hosts:
-        - "prometheus.devbu.io"
+        - "prometheus.monitoring.elcarpenter.com"
         tls:
         - hosts:
-          - "prometheus.devbu.io"
+          - "prometheus.monitoring.elcarpenter.com"
       prometheusSpec:
         replicas: 3
         replicaExternalLabelName: "replica"
@@ -285,7 +285,7 @@ spec:
           metrics_path: /minio/prometheus/metrics
           static_configs:
           - targets:
-            - 192.168.1.39:9000
+            - minio.longhorn-system.svc:9000
   valuesFrom:
   - kind: Secret
     name: "kube-prometheus-stack-helm-values"
