@@ -23,12 +23,27 @@ spec:
       strategies:
         RemoveDuplicates:
           enabled: false
+          params:
+            namespaces:
+              exclude:
+              - "longhorn-system"
         RemovePodsViolatingNodeAffinity:
           enabled: true
           params:
             nodeAffinityType:
             - requiredDuringSchedulingIgnoredDuringExecution
+            namespaces:
+              exclude:
+              - "longhorn-system"
         RemovePodsViolatingInterPodAntiAffinity:
-          enabled: false
+          enabled: true
+          params:
+            namespaces:
+              exclude:
+              - "longhorn-system"
         LowNodeUtilization:
-          enabled: false
+          enabled: true
+          params:
+            namespaces:
+              exclude:
+              - "longhorn-system"
