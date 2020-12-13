@@ -42,14 +42,12 @@ spec:
       - hosts:
         - unifi.network.elcarpenter.com
     unifiedService:
-      enabled: true
+      enabled: false
       type: LoadBalancer
       loadBalancerIP: 10.201.90.10
-    # guiService:
-    #   type: LoadBalancer
-    #   loadBalancerIP: 10.201.90.10
-    #   annotations:
-    #     metallb.universe.tf/allow-shared-ip: unifi
+    guiService:
+      type: LoadBalancer
+      loadBalancerIP: 10.201.90.10
     # captivePortalService:
     #   enabled: true
     #   type: LoadBalancer
@@ -61,16 +59,12 @@ spec:
     #   annotations:
     #     kubernetes.io/ingress.class: "nginx"
     #     # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    # controllerService:
-    #   type: LoadBalancer
-    #   loadBalancerIP: 10.201.90.10
-    #   annotations:
-    #     metallb.universe.tf/allow-shared-ip: unifi
-    # stunService:
-    #   type: LoadBalancer
-    #   loadBalancerIP: 10.201.90.10
-    #   annotations:
-    #     metallb.universe.tf/allow-shared-ip: unifi
+    controllerService:
+      type: LoadBalancer
+      loadBalancerIP: 10.201.90.10
+    stunService:
+      type: LoadBalancer
+      loadBalancerIP: 10.201.90.10
     # discoveryService:
     #   type: LoadBalancer
     #   loadBalancerIP: 10.201.90.10
