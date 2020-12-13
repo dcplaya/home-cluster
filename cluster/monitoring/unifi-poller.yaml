@@ -22,7 +22,7 @@ spec:
       tag: 2.0.1
     env:
       TZ: "America/Los_Angeles"
-      UP_UNIFI_DEFAULT_ROLE: "homelab-controller"
+      UP_UNIFI_DEFAULT_ROLE: "home"
       UP_UNIFI_DEFAULT_URL: "https://10.201.90.10:8443"
       UP_UNIFI_DEFAULT_VERIFY_SSL: false
       UP_UNIFI_DEFAULT_USER: "unifipoller"
