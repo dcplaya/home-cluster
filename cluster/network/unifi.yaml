@@ -50,16 +50,21 @@ spec:
       type: LoadBalancer
       externalIPs:
       - 10.201.90.10
-    # captivePortalService:
-    #   enabled: true
-    #   type: LoadBalancer
-    #   externalIPs:
-    #   - 10.201.90.10
-    #   ingress:
-    #     enabled: true
-    #   annotations:
-    #     kubernetes.io/ingress.class: "nginx"
-    #     # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    captivePortalService:
+      enabled: true
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.90.10
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "external"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        hosts:
+        - guest.network.elcarpenter.com
+        tls:
+        - hosts:
+          - guest.network.elcarpenter.com
     controllerService:
       type: LoadBalancer
       externalIPs:
@@ -68,10 +73,10 @@ spec:
       type: LoadBalancer
       externalIPs:
       - 10.201.90.10
-    # discoveryService:
-    #   type: LoadBalancer
-    #   externalIPs:
-    #   - 10.201.90.10
+    discoveryService:
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.90.10
     resources:
       requests:
         memory: 500Mi
