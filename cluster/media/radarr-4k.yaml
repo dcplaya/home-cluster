@@ -92,7 +92,6 @@ spec:
               operator: NotIn
               values:
               - node04
-              # - k8s-worker-e
 
     resources:
       requests:
