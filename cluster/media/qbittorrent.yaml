@@ -71,6 +71,17 @@ spec:
     # - name: media-serenity
     #   persistentVolumeClaim:
     #     claimName: nfs-media-serenity-pvc
+    
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node04
+
     resources:
       requests:
         memory: 250Mi

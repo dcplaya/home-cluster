@@ -56,6 +56,17 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "5Gi"
+
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node04
+
     resources:
       requests:
         memory: 250Mi

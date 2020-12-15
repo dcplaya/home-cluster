@@ -45,8 +45,17 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "1Gi"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
+
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node04
+              
     probes:
       startup:
         enabled: true
