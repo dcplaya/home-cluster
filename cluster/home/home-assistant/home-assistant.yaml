@@ -91,7 +91,7 @@ spec:
       postgresqlDatabase: homeassistant
       persistence:
         enabled: true
-        storageClass: "longhorn"
+        storageClass: "openebs-cstor-sparse"
 
     influxdb:
       enabled: true
@@ -101,7 +101,7 @@ spec:
       updateStrategy: Recreate
       persistence:
         enabled: true
-        storageClass: "longhorn"
+        storageClass: "openebs-cstor-sparse"
         size: 30Gi
 
     vscode:
