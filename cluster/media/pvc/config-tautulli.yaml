@@ -5,7 +5,7 @@ metadata:
   name: config-tautulli
   namespace: media
 spec:
-  storageClassName: openebs-cstor-sparse
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:

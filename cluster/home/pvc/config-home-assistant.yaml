@@ -2,12 +2,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: config-radarr
-  namespace: media
+  name: config-home-assistant
+  namespace: home
 spec:
-  storageClassName: openebs-cstor-sparse
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 10Gi

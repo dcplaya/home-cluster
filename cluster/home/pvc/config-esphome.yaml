@@ -2,12 +2,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: config-sonarr
-  namespace: media
+  name: config-esphome
+  namespace: home
 spec:
-  storageClassName: openebs-cstor-sparse
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 30Gi
+      storage: 10Gi
