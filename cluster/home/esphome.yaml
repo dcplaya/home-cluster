@@ -20,6 +20,7 @@ spec:
     image:
       repository: esphome/esphome
       tag: dev
+      pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
       ESPHOME_DASHBOARD_USE_PING: true
