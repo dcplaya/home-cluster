@@ -7,16 +7,11 @@ on:
 
 jobs:
   renovate-helmrelease:
-    # runs-on: ubuntu-latest
-    runs-on:
-    - self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-
-    - name: Run Kubernetes tools
-      uses: stefanprodan/kube-tools@v1
 
     - name: Install yq
       run: |
