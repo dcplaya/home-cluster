@@ -3,7 +3,7 @@ name: renovate-helmrelease-schedule
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 * * * *"
+  - cron: "0 */6 * * *"
 
 jobs:
   renovate-helmrelease:
@@ -15,10 +15,8 @@ jobs:
 
     - name: Install yq
       run: |
-        mkdir -p "${GITHUB_WORKSPACE}/bin"
-        echo "${GITHUB_WORKSPACE}/bin" >> $GITHUB_PATH
-        curl -sL -o "${GITHUB_WORKSPACE}/bin/yq" https://github.com/mikefarah/yq/releases/download/3.4.1/yq_linux_amd64
-        chmod +x "${GITHUB_WORKSPACE}/bin/yq"
+        sudo wget -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/3.3.0/yq_linux_amd64
+        sudo chmod +x /usr/local/bin/yq
 
     - name: Create HelmRelease annotations
       run: ./hack/create-helmrelease-annotations.sh
