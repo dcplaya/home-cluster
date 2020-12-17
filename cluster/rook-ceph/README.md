@@ -2,6 +2,12 @@
 
 https://rook.io/docs/rook/v1.2/ceph-common-issues.html
 
+## Dashboard Inital Login
+
+```
+kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
+```
+
 ## Toolbox
 
 ```bash
@@ -28,10 +34,10 @@ In your shell...
 
 ```bash
 # Scale app to 0 replicas
-kubectl scale deploy/zigbee2mqtt --replicas 0 -n home
+kubectl scale deploy/esphome --replicas 0 -n home
 
 # Get RBD image name for the app
-kubectl get pv/(k get pv | grep zigbee2mqtt-data | awk -F' ' '{print $1}') -n home -o json | jq -r '.spec.csi.volumeAttributes.imageName'
+kubectl get pv/(k get pv | grep conffig-esphome | awk -F' ' '{print $1}') -n home -o json | jq -r '.spec.csi.volumeAttributes.imageName'
 # csi-vol-e4a2e40f-2795-11eb-80c7-2298c6796a25
 ```
 
