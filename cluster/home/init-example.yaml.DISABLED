@@ -18,6 +18,6 @@ spec:
       name: config-pvc
   restartPolicy: Always
   volumes:
-    - name: config-pvc
-      persistentVolumeClaim:
-       claimName: config-node-red
+  - name: config-pvc
+    persistentVolumeClaim:
+     claimName: config-node-red
