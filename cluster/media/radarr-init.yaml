@@ -8,9 +8,9 @@ spec:
   containers:
   - image: alpine:3.2
     command:
-      - /bin/sh
-      - "-c"
-      - "apk update && apk add openssh && apk add rsync && sleep 6000000000m"
+    - /bin/sh
+    - "-c"
+    - "apk update && apk add openssh && apk add rsync && sleep 6000000000m"
     imagePullPolicy: IfNotPresent
     name: alpine
     volumeMounts:
