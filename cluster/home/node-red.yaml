@@ -20,7 +20,10 @@ spec:
     image:
       repository: nodered/node-red
       tag: latest
-      pullPolicy: Always
+      pullPolicy: 
+    SecurityContext:
+      runAsUser: 1000  
+      fsGroup: 1000
     env:
       TZ: "America/Los_Angeles"
       NODE_RED_ENABLE_PROJECTS: "true"
