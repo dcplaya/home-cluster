@@ -20,4 +20,4 @@ spec:
   volumes:
   - name: config-pvc
     persistentVolumeClaim:
-     claimName: config-radarr-4k
+      claimName: config-radarr-4k
