@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: alpine-collections
+  name: alpine-tautulli
   namespace: media
 spec:
   containers:
@@ -20,4 +20,4 @@ spec:
   volumes:
   - name: config-pvc
     persistentVolumeClaim:
-      claimName: config-plex-auto-collections
+      claimName: config-tautlli
