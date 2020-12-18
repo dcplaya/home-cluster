@@ -20,4 +20,4 @@ spec:
   volumes:
   - name: config-pvc
     persistentVolumeClaim:
-      claimName: config-tautlli
+      claimName: config-tautulli
