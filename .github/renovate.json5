@@ -61,11 +61,11 @@
       "packageNames": ["blakeblackshear/frigate"]
     },
     // pin versions
-    {
-      "datasources": ["docker"],
-      "allowedVersions": "<4.3.0",
-      "packageNames": ["k8sathome/qbittorrent"]
-    },
+    // {
+    //   "datasources": ["docker"],
+    //   "allowedVersions": "<4.3.0",
+    //   "packageNames": ["k8sathome/qbittorrent"]
+    // },
     // versioning
     // {
     //   "datasources": ["docker"],
@@ -91,7 +91,7 @@
       "updateTypes": ["minor", "patch"],
       "packageNames": [
         "k8sathome/ombi",
-        "k8sathome/jackett"
+        "k8sathome/jackett",
         "homeassistant/home-assistant",
         "k8sathome/radarr",
         "k8sathome/sonarr",
