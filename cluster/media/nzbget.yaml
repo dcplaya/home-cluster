@@ -49,6 +49,7 @@ spec:
         enabled: true
         emptyDir: false
         mountPath: /downloads
+        accessMode: ReadWriteOnce
         storageClass: "rook-ceph-block"
         size: 100Gi
     # podAnnotations:
