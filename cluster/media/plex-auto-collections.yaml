@@ -1,0 +1,46 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  namespace: media
+  name: plex-auto-collections
+  annotations: {}
+spec:
+  # Run once a day, every day, starting at 6PM
+  schedule: "0 18 * * *"
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: plex-auto-collections
+            # image: burkasaurusrex/plex-auto-collections:develop
+            image: mza921/plex-auto-collections:performance
+            imagePullPolicy: Always
+
+            # command: ["sleep"]
+            # args: ["999999999999"]
+            command: ["/usr/local/bin/python3"]
+            args: ["/app/plex_auto_collections.py", "-u"]
+
+            # env:
+            #   - name: PUID
+            #     value: "1000"
+            volumeMounts:
+            - mountPath: /config
+              name: config-plex-auto-collections
+            resources:
+              requests:
+                memory: 50Mi
+                cpu: 100m
+              limits:
+                memory: 200Mi
+                cpu: 300m
+          restartPolicy: Never
+          volumes:
+          - name: config-plex-auto-collections
+            persistentVolumeClaim:
+              claimName: config-plex-auto-collections
