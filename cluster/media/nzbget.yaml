@@ -45,12 +45,12 @@ spec:
       config:
         enabled: true
         existingClaim: config-nzbget
-    downloads:
-      enabled: true
-      emptyDir: false
-      mountPath: /downloads
-      storageClass: "rook-ceph-block"
-      size: 100Gi
+      downloads:
+        enabled: true
+        emptyDir: false
+        mountPath: /downloads
+        storageClass: "rook-ceph-block"
+        size: 100Gi
     # podAnnotations:
     #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
