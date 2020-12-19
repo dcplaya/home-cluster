@@ -55,7 +55,7 @@ spec:
               operator: NotIn
               values:
               - node04
-              
+
     resources:
       requests:
         memory: 250Mi
