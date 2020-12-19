@@ -50,9 +50,6 @@ spec:
     persistence:
       config:
         claimName: config-plex
-        # storageClass: "longhorn"
-        # size: 250Gi
-        # accessMode: ReadWriteOnce
       transcode:
         enabled: false
         emptyDir:
@@ -87,3 +84,17 @@ spec:
       limits:
         gpu.intel.com/i915: 1
         memory: 12000Mi
+
+    # Probes configuration
+    probes:
+      liveness:
+        failureThreshold: 5
+        periodSeconds: 10
+      readiness:
+        failureThreshold: 5
+        periodSeconds: 10
+      startup:
+        # Increased inital delay since the container downloads the binary before running
+        initialDelaySeconds: 60
+        failureThreshold: 30
+        periodSeconds: 10
