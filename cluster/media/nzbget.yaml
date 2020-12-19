@@ -45,28 +45,15 @@ spec:
       config:
         enabled: true
         existingClaim: config-nzbget
-      downloads:
-        enabled: true
-        emptyDir: false
-        mountPath: /downloads
-        accessMode: ReadWriteOnce
-        storageClass: "rook-ceph-block"
-        size: 100Gi
     # podAnnotations:
     #   backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
     - name: nfs-media
       mountPath: "/mnt/unionfs"
-    # - name: downloads
-    #   mountPath: "/downloads"
     additionalVolumes:
     - name: nfs-media
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
-    # - name: downloads
-    #   emptyDir: {}
-      # persistentVolumeClaim:
-      #   claimName: nfs-media-serenity-pvc
 
     affinity:
       nodeAffinity:
@@ -84,4 +71,6 @@ spec:
         memory: 260Mi
         cpu: 500m
       limits:
+        cpu: 2500m
         memory: 7500Mi
+
