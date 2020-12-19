@@ -73,4 +73,3 @@ spec:
       limits:
         cpu: 2500m
         memory: 7500Mi
-
