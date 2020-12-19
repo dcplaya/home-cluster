@@ -17,6 +17,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    ## EnableCSI uses the new kubernetes CSI snapshot beta feature
     # features: "EnableCSI"
     configuration:
       provider: aws
