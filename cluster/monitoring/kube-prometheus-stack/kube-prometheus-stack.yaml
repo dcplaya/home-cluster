@@ -71,7 +71,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: "longhorn"
+              storageClassName: "rook-ceph-block"
               resources:
                 requests:
                   storage: 10Gi
@@ -92,7 +92,7 @@ spec:
         type: Recreate
       persistence:
         enabled: false
-        storageClassName: "longhorn"
+        storageClassName: "rook-ceph-block"
         size: 10Gi
         accessModes:
         - ReadWriteOnce
@@ -264,7 +264,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: "longhorn"
+              storageClassName: "rook-ceph-block"
               resources:
                 requests:
                   storage: 10Gi
@@ -285,7 +285,7 @@ spec:
           metrics_path: /minio/prometheus/metrics
           static_configs:
           - targets:
-            - minio.longhorn-system.svc:9000
+            - minio.kube-system.svc:9000
   valuesFrom:
   - kind: Secret
     name: "kube-prometheus-stack-helm-values"
