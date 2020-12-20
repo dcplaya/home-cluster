@@ -60,6 +60,8 @@ spec:
       - name: media
         claimName: nfs-nas-merged-media-pvc
         mountPath: mnt/unionfs
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
     logging:
       promtail:
         enabled: false
