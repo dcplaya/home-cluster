@@ -24,6 +24,8 @@ spec:
     persistence:
       enabled: true
       existingClaim: config-unifi
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
     timezone: "America/Los_Angeles"
     runAsRoot: false
 

@@ -45,6 +45,8 @@ spec:
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
         # size: "1Gi"
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
 
     affinity:
       nodeAffinity:

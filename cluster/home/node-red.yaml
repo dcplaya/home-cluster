@@ -58,7 +58,9 @@ spec:
         existingClaim: config-node-red
         # storageClass: "longhorn"
         # accessMode: ReadWriteOnce
-        # size: "5Gi"
+        # size: "5Gi"    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
 
     affinity:
       nodeAffinity:

@@ -45,8 +45,8 @@ spec:
       config:
         enabled: true
         existingClaim: config-nzbget
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
     - name: nfs-media
       mountPath: "/mnt/unionfs"

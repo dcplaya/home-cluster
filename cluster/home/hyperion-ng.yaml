@@ -84,6 +84,8 @@ spec:
       config:
         enabled: true
         existingClaim: config-hyperion-ng
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
 
     # additionalVolumeMounts:
     # - name: media-serenity

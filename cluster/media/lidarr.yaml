@@ -68,8 +68,8 @@ spec:
     #     storageClass: "rook-ceph-block"
     #     accessMode: ReadWriteOnce
     #     size: "25Gi"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
     - name: nfs-nas-merged-media-pvc
       mountPath: "/mnt/unionfs"
