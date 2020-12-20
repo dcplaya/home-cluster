@@ -22,7 +22,7 @@ spec:
     configuration:
       provider: aws
       backupStorageLocation:
-        name: kube-system
+        name: default
         bucket: velero
         config:
           region: us-east-1
