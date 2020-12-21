@@ -29,7 +29,8 @@ spec:
         existingClaim: database-adguard-home
     timezone: "America/Los_Angeles"
 
-    tlsSecretName: "kube-system/elcarpenter-com-tls"
+    ## Currently not working
+    # tlsSecretName: "kube-system/elcarpenter-com-tls"
 
     ingress:
       enabled: true
