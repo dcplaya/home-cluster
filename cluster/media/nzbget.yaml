@@ -47,7 +47,7 @@ spec:
         existingClaim: config-nzbget
       downloads:
         enabled: true
-        
+
     podAnnotations:
       backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
