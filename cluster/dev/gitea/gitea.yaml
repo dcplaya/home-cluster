@@ -29,10 +29,10 @@ spec:
         kubernetes.io/ingress.class: "internal"
         nginx.ingress.kubernetes.io/proxy-body-size: 128m
       hosts:
-      - "gitea.dev.elcarpenter.com"
+      - "git.dev.elcarpenter.com"
       tls:
       - hosts:
-        - "gitea.dev.elcarpenter.com"
+        - "git.dev.elcarpenter.com"
     service:
       http:
         port: 3000
