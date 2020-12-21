@@ -1,5 +1,5 @@
 gitea:
   admin:
-    username: "$GITEA_ADMIN_USERNAME}"
+    username: "${GITEA_ADMIN_USERNAME}"
     password: "${GITEA_ADMIN_PASSWORD}"
     email: "${EMAIL}"
