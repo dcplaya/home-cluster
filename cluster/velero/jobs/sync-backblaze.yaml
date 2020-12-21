@@ -55,4 +55,4 @@ spec:
           # Location of rclone.conf
           - name: rclone-sync-backup
             persistentVolumeClaim:
-              claimName: nfs-config-pvc
+              claimName: nfs-config

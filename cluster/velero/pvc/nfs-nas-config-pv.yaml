@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-backup-pvc
+  name: nfs-config-pv
   namespace: velero
 spec:
   accessModes:
