@@ -100,13 +100,6 @@ configAsCode:
       id: 1585613910
     whitelist_filters: []
     user_rules:
-    - '@@||md.us^                                # Maryland Schools'
-    - '@@||ccbsroncos.org^                 # Albuquerque Schools '
-    - '@@||r20.rs6.net^'
-    - '@@||analytics.archive.org^         # Internet Archive because they need the stats'
-    - '@@||schwab.com^                    # My Bank'
-    - '@@||chase.com^                     # Credit card company'
-    - '@@||chasecdn.com^                  # Chase's content delivery network'
     dhcp:
       enabled: false
       interface_name: ""
