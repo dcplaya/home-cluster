@@ -29,13 +29,12 @@ configAsCode:
       ratelimit_whitelist: []
       refuse_any: true
       upstream_dns:
-      - '[/elcarpenter.com/]10.1.1.2'
-      - '[/bergandbeans.com/]10.1.1.2'
-      - '[/network.elcarpenter.com/]10.1.1.2'
+      - '[/elcarpenter.com/]10.201.1.1'
+      - '[/bergandbeans.com/]10.201.1.1'
+      - '[/network.elcarpenter.com/]10.201.1.1'
       - '[/vpn.elcarpenter.com/]1.1.1.1'
       - '[/device.elcarpenter.com/]1.1.1.1'
-      - '[/cluster.elcarpenter.com/]10.1.1.2'
-      - '[/news-us.newsgroup.ninja/]8.8.8.8'
+      - '[/cluster.elcarpenter.com/]10.201.1.1'
       - https://1.1.1.1/dns-query
       - https://1.0.0.1/dns-query
       bootstrap_dns:
@@ -100,6 +99,13 @@ configAsCode:
       id: 1585613910
     whitelist_filters: []
     user_rules:
+    - '@@||md.us^                         # Maryland Schools'
+    - '@@||ccbsroncos.org^                # Albuquerque Schools '
+    - '@@||r20.rs6.net^'
+    - '@@||analytics.archive.org^         # Internet Archive because they need the stats'
+    - '@@||schwab.com^                    # My Bank'
+    - '@@||chase.com^                     # Credit Card'
+    - '@@||chasecdn.com^                  # Chase''s content delivery network'
     dhcp:
       enabled: false
       interface_name: ""

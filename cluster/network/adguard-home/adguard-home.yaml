@@ -46,7 +46,7 @@ spec:
     service:
       type: LoadBalancer
       externalIPs:
-      - 10.201.1.10
+      - 10.201.50.10
     serviceTCP:
       enabled: true
     serviceUDP:
