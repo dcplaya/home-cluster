@@ -45,6 +45,9 @@ spec:
       config:
         enabled: true
         existingClaim: config-nzbget
+      downloads:
+        enabled: true
+        
     podAnnotations:
       backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
@@ -71,5 +74,5 @@ spec:
         memory: 260Mi
         cpu: 500m
       limits:
-        cpu: 2500m
+        # cpu: 2500m
         memory: 7500Mi
