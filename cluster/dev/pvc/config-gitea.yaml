@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: config-gitea
-  namespace: home
+  namespace: dev
 spec:
   storageClassName: rook-ceph-block
   accessModes:
