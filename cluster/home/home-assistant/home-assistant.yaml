@@ -24,11 +24,10 @@ spec:
       repository: homeassistant/home-assistant
       tag: dev
       pullPolicy: Always
-    extraEnv:
+    env:
       TZ: "America/Los_Angeles"
       PUID: "1000"
       PGID: "100"
-
     hostNetwork: true
     service:
       type: LoadBalancer
@@ -40,25 +39,63 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
-      - "home.elcarpenter.com"
+      - host: home.elcarpenter.com
+        paths:
+        - path: /
+          pathType: Prefix
       tls:
       - hosts:
         - "home.elcarpenter.com"
-
-    # persistence:
-    #   config:
-    #     enabled: true
-    #     existingClaim: config-home-assistant
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
     monitoring:
       enabled: false
-
+    prometheus:
+      serviceMonitor:
+        enabled: false
     probes:
       liveness:
         enabled: false
       readiness:
         enabled: false
+      startup:
+        enabled: false
+    persistence:
+      config:
+        enabled: true
+        existingClaim: config-home-assistant
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: codercom/code-server
+          tag: 3.8.0
+        workingDir: "/config"
+        args:
+        - --auth
+        - "none"
+        - --user-data-dir
+        - "/config/.vscode"
+        - --extensions-dir
+        - "/config/.vscode"
+        ingress:
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: "internal"
+          hosts:
+          - host: vscode.home.elcarpenter.com
+            paths:
+            - path: /
+              pathType: Prefix
+          tls:
+          - hosts:
+            - vscode.home.elcarpenter.com
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        # - name: deploykey
+        #   mountPath: /root/.ssh/id_rsa
+        #   subPath: id_rsa
     resources:
       requests:
         cpu: 500m
@@ -71,11 +108,11 @@ spec:
     #   hostPath: "/dev/zigbee"
 
     affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
+      # nodeAffinity:
+      #   requiredDuringSchedulingIgnoredDuringExecution:
+      #     nodeSelectorTerms:
+      #     - matchExpressions:
+      #       - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
@@ -103,23 +140,6 @@ spec:
         enabled: true
         storageClass: "rook-ceph-block"
         size: 30Gi
-
-    vscode:
-      enabled: true
-      image:
-        repository: codercom/code-server
-        tag: 3.8.0
-      extraEnv:
-        HASS_SERVER: "http://localhost:8123"
-      ingress:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: "internal"
-        hosts:
-        - "vscode.home.elcarpenter.com"
-        tls:
-        - hosts:
-          - "vscode.home.elcarpenter.com"
   valuesFrom:
   - kind: Secret
     name: "home-assistant-helm-values"
