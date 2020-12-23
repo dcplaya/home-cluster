@@ -35,7 +35,7 @@ spec:
         base_topic: zigbee2mqtt
         server: "mqtt://vernemq"
       serial:
-        port: /dev/zigbee
+        port: /dev/ttyUSB0
       advanced:
         log_output:
         - console
@@ -83,7 +83,7 @@ spec:
       backup.velero.io/backup-volumes: data
     additionalVolumeMounts:
     - name: usb
-      mountPath: /dev/zigbee
+      mountPath: /dev/ttyUSB0
     additionalVolumes:
     - name: usb
       hostPath:
