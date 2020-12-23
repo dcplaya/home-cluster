@@ -50,8 +50,8 @@ spec:
       existingClaim: "config-home-assistant"
       # size: 10Gi
       # storageClass: "rook-ceph-block"
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
     monitoring:
       enabled: false
 
@@ -72,11 +72,11 @@ spec:
     #   hostPath: "/dev/zigbee"
 
     affinity:
-      # nodeAffinity:
-      #   requiredDuringSchedulingIgnoredDuringExecution:
-      #     nodeSelectorTerms:
-      #     - matchExpressions:
-      #       - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
