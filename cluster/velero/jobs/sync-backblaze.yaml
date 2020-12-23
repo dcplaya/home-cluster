@@ -38,7 +38,7 @@ spec:
             - "--fast-list"
             - "--b2-hard-delete"
             - "--transfers"
-            - "100"
+            - "50"
             - "--checkers"
             - "50"
             - "--bwlimit"
