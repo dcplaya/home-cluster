@@ -45,10 +45,10 @@ spec:
       - hosts:
         - "home.elcarpenter.com"
 
-    persistence:
-      config:
-        enabled: true
-        existingClaim: config-home-assistant
+    # persistence:
+    #   config:
+    #     enabled: true
+    #     existingClaim: config-home-assistant
     podAnnotations:
       backup.velero.io/backup-volumes: config
     monitoring:
