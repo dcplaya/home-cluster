@@ -27,6 +27,7 @@ spec:
             namespaces:
               exclude:
               - "longhorn-system"
+              - "rook-ceph"
         RemovePodsViolatingNodeAffinity:
           enabled: true
           params:
@@ -35,15 +36,18 @@ spec:
             namespaces:
               exclude:
               - "longhorn-system"
+              - "rook-ceph"
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: true
           params:
             namespaces:
               exclude:
               - "longhorn-system"
+              - "rook-ceph"
         LowNodeUtilization:
           enabled: true
           params:
             namespaces:
               exclude:
               - "longhorn-system"
+              - "rook-ceph"
