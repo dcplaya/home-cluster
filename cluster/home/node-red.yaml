@@ -53,7 +53,7 @@ spec:
         mountPath: /data
         existingClaim: config-node-red
     podAnnotations:
-      backup.velero.io/backup-volumes: config
+      backup.velero.io/backup-volumes: data
     resources:
       requests:
         memory: 250Mi
