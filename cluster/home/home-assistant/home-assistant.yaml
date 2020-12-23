@@ -46,10 +46,9 @@ spec:
         - "home.elcarpenter.com"
 
     persistence:
-      enabled: true
-      existingClaim: "config-home-assistant"
-      # size: 10Gi
-      # storageClass: "rook-ceph-block"
+      config:
+        enabled: true
+        existingClaim: config-home-assistant
     podAnnotations:
       backup.velero.io/backup-volumes: config
     monitoring:
