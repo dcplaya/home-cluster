@@ -58,8 +58,13 @@ spec:
         existingClaim: config-node-red
     podAnnotations:
       backup.velero.io/backup-volumes: config
-
-
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 500m
+      limits:
+        memory: 1500Mi
+        cpu: 2000m
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -69,11 +74,3 @@ spec:
               operator: NotIn
               values:
               - node04
-
-    resources:
-      requests:
-        memory: 250Mi
-        cpu: 500m
-      limits:
-        memory: 1500Mi
-        cpu: 2000m
