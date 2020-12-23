@@ -52,14 +52,13 @@ spec:
     additionalVolumeMounts:
     - name: nfs-media
       mountPath: "/mnt/unionfs"
+    - name: nfs-downloads
+      mountPath: "/downloads"
     additionalVolumes:
     - name: nfs-media
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
-    - name: nfs-media
-      mountPath: "/downloads"
-    additionalVolumes:
-    - name: nfs-media
+    - name: nfs-downloads
       persistentVolumeClaim:
         claimName: nfs-nas-media-pvc
     affinity:
