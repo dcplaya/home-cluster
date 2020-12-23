@@ -83,6 +83,7 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /root/.hyperion
         existingClaim: config-hyperion-ng
     podAnnotations:
       backup.velero.io/backup-volumes: config
