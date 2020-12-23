@@ -56,9 +56,7 @@ spec:
         # emptyDir: true
         mountPath: /data
         existingClaim: config-node-red
-        # storageClass: "longhorn"
-        # accessMode: ReadWriteOnce
-        # size: "5Gi"    podAnnotations:
+    podAnnotations:
       backup.velero.io/backup-volumes: config
 
 
