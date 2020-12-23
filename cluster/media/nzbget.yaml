@@ -46,8 +46,7 @@ spec:
         enabled: true
         existingClaim: config-nzbget
       downloads:
-        enabled: true
-
+        enabled: false
     podAnnotations:
       backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
@@ -57,7 +56,12 @@ spec:
     - name: nfs-media
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
-
+    - name: nfs-media
+      mountPath: "/downloads"
+    additionalVolumes:
+    - name: nfs-media
+      persistentVolumeClaim:
+        claimName: nfs-nas-media-pvc
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
