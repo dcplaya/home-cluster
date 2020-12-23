@@ -21,9 +21,6 @@ spec:
       repository: nodered/node-red
       tag: latest
       pullPolicy: Always
-    # SecurityContext:
-    #   runAsUser: 0
-    #   fsGroup: 0
     env:
       TZ: "America/Los_Angeles"
       NODE_RED_ENABLE_PROJECTS: "true"
@@ -53,7 +50,6 @@ spec:
     persistence:
       data:
         enabled: true
-        # emptyDir: true
         mountPath: /data
         existingClaim: config-node-red
     podAnnotations:
@@ -65,12 +61,3 @@ spec:
       limits:
         memory: 1500Mi
         cpu: 2000m
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: NotIn
-              values:
-              - node04
