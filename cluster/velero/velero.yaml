@@ -27,8 +27,8 @@ spec:
         config:
           region: us-east-1
           s3ForcePathStyle: true
-          s3Url: http://minio.kube-system.svc:9000
-          publicUrl: https://minio.storage.elcarpenter.com
+          s3Url: http://minio.kube-system.svc:9000/minio
+          publicUrl: https://minio.storage.elcarpenter.com/minio
       volumeSnapshotLocation:
         name: aws
         config:
