@@ -82,6 +82,16 @@ spec:
         tag: 11.10.0
       persistence:
         storageClass: "rook-ceph-block"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node00
+              - node04
   valuesFrom:
   - kind: Secret
     name: "gitea-helm-values"

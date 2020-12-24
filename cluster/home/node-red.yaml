@@ -61,3 +61,13 @@ spec:
       limits:
         memory: 1500Mi
         cpu: 2000m
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node00
+              - node04
