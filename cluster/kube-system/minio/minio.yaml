@@ -45,6 +45,10 @@ spec:
       # Number of parallel instances
       replicas: 3
 
+    service:
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.10.55
     ingress:
       enabled: true
       annotations:
