@@ -138,8 +138,7 @@ spec:
       updateStrategy: Recreate
       persistence:
         enabled: true
-        storageClass: "rook-ceph-block"
-        size: 30Gi
+        existingClaim: database-home-assistant-influxdb
   valuesFrom:
   - kind: Secret
     name: "home-assistant-helm-values"
