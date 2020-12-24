@@ -67,6 +67,17 @@ spec:
       limits:
         memory: 1000Mi
 
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node00
+              - node04
+
   valuesFrom:
   - kind: Secret
     name: "minio-helm-values"
