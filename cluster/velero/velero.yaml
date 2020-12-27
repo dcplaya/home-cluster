@@ -26,7 +26,7 @@ spec:
         bucket: velero
         # prefix: minio
         config:
-          region: minio
+          region: us-east-1
           s3ForcePathStyle: true
           s3Url: http://minio.kube-system.svc:9000
           publicUrl: https://minio.storage.elcarpenter.com
