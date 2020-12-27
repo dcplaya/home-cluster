@@ -23,10 +23,10 @@ spec:
       provider: aws
       backupStorageLocation:
         name: default
-        bucket: minio
-        prefix: velero
+        bucket: velero
+        # prefix: minio
         config:
-          region: us-east-1
+          region: minio
           s3ForcePathStyle: true
           s3Url: http://minio.kube-system.svc:9000
           publicUrl: https://minio.storage.elcarpenter.com
@@ -50,7 +50,7 @@ spec:
       serviceMonitor:
         enabled: true
     installCRDs: true
-    snapshotsEnabled: true
+    snapshotsEnabled: false
     deployRestic: true
     restic:
       podVolumePath: /var/lib/kubelet/pods
