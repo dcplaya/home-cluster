@@ -86,6 +86,6 @@ spec:
       limits:
         memory: 750Mi
     livenessProbe:
-      enabled: false
+      enabled: true
     readinessProbe:
-      enabled: false
+      enabled: true
