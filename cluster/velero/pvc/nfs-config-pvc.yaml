@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-config
+  name: nfs-config-pvc
   namespace: velero
 spec:
   accessModes:
-    - ReadWriteMany
+  - ReadWriteMany
   storageClassName: config
   resources:
     requests:
