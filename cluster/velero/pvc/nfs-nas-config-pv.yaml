@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   name: nfs-config-pv
 spec:
-  storageClassName: config
+  storageClassName: ""
   capacity:
     storage: 1Mi
   accessModes:
