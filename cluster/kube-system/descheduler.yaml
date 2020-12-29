@@ -28,6 +28,7 @@ spec:
               exclude:
               - "longhorn-system"
               - "rook-ceph"
+              - "velero"
         RemovePodsViolatingNodeAffinity:
           enabled: true
           params:
@@ -37,6 +38,7 @@ spec:
               exclude:
               - "longhorn-system"
               - "rook-ceph"
+              - "velero"
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: true
           params:
@@ -44,6 +46,7 @@ spec:
               exclude:
               - "longhorn-system"
               - "rook-ceph"
+              - "velero"
         LowNodeUtilization:
           enabled: true
           params:
@@ -51,3 +54,4 @@ spec:
               exclude:
               - "longhorn-system"
               - "rook-ceph"
+              - "velero"
