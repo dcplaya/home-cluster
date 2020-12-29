@@ -102,11 +102,13 @@ spec:
         memory: 1000Mi
       limits:
         memory: 2500Mi
-
-    hostMounts:
-    - name: zha
-      hostPath: "/dev/zigbee"
-
+    additionalVolumeMounts:
+    - name: zigbee
+      mountPath: /dev/zigbee
+    additionalVolumes:
+    - name: zigbee
+      hostPath:
+        path: /dev/zigbee
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
