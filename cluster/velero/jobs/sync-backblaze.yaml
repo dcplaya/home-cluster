@@ -38,11 +38,11 @@ spec:
             - "--fast-list"
             - "--b2-hard-delete"
             - "--transfers"
-            - "50"
+            - "24"
             - "--checkers"
-            - "50"
+            - "24"
             - "--bwlimit"
-            - "250M"
+            - "25M"
             - "minio:velero"
             - "backblaze-velero-crypt:/"
             volumeMounts:
@@ -55,4 +55,4 @@ spec:
           # Location of rclone.conf
           - name: rclone-sync-backup
             persistentVolumeClaim:
-              claimName: nfs-config
+              claimName: nfs-config-pvc
