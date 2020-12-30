@@ -20,6 +20,7 @@ spec:
     controller:
       ingressClass: external
       replicaCount: 3
+      extraEnvs:
       - name: TZ
         value: America/Los_Angeles
       service:
