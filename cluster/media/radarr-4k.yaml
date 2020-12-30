@@ -29,7 +29,8 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: "external"
+        # kubernetes.io/ingress.class: "external"
+        ingressClassName: "external"
         nginx.ingress.kubernetes.io/auth-url: "https://auth.elcarpenter.com/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://auth.elcarpenter.com/oauth2/start"
         nginx.ingress.kubernetes.io/configuration-snippet: |
