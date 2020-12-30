@@ -52,7 +52,8 @@ spec:
       - enabled: true
         nameSuffix: "api"
         annotations:
-          kubernetes.io/ingress.class: "external"
+          # kubernetes.io/ingress.class: "external"
+          ingressClassName: "external"
         hosts:
         - host: 4kmovies.media.elcarpenter.com
           paths:
