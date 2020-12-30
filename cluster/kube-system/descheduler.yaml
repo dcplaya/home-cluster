@@ -30,7 +30,7 @@ spec:
               - "rook-ceph"
               - "velero"
         RemovePodsViolatingNodeAffinity:
-          enabled: true
+          enabled: false
           params:
             nodeAffinityType:
             - requiredDuringSchedulingIgnoredDuringExecution
@@ -40,7 +40,7 @@ spec:
               - "rook-ceph"
               - "velero"
         RemovePodsViolatingInterPodAntiAffinity:
-          enabled: true
+          enabled: false
           params:
             namespaces:
               exclude:
@@ -48,7 +48,7 @@ spec:
               - "rook-ceph"
               - "velero"
         LowNodeUtilization:
-          enabled: true
+          enabled: false
           params:
             namespaces:
               exclude:
