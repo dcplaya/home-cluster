@@ -40,6 +40,7 @@ spec:
           namespace: kube-system
       extraArgs:
         default-ssl-certificate: "kube-system/elcarpenter-com-tls"
+        v: 3
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
