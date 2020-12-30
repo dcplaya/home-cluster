@@ -30,7 +30,7 @@ spec:
       enabled: true
       annotations:
         # kubernetes.io/ingress.class: "external"
-        ingressClassName: "external"
+        kubernetes.io/ingressClassName: "external"
         nginx.ingress.kubernetes.io/auth-url: "https://auth.elcarpenter.com/oauth2/auth"
         nginx.ingress.kubernetes.io/auth-signin: "https://auth.elcarpenter.com/oauth2/start"
         nginx.ingress.kubernetes.io/configuration-snippet: |
@@ -54,7 +54,7 @@ spec:
         nameSuffix: "api"
         annotations:
           # kubernetes.io/ingress.class: "external"
-          ingressClassName: "external"
+          kubernetes.io/ingressClassName: "external"
         hosts:
         - host: 4kmovies.media.elcarpenter.com
           paths:
