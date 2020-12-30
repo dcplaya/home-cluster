@@ -20,6 +20,9 @@ spec:
     controller:
       ingressClass: "internal"
       replicaCount: 4
+      extraEnvs:
+      - name: TZ
+        value: America/Los_Angeles
       service:
         type: LoadBalancer
         externalIPs:
