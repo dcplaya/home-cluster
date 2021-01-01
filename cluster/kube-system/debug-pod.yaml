@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-debug
+  namespace: kube-system
+spec:
+  containers:
+  - image: alpine:3.2
+    command:
+    - /bin/sh
+    - "-c"
+    - "apk update && apk add openssh bind-tools && apk add rsync && sleep 600000000m"
+    imagePullPolicy: IfNotPresent
+    name: alpine
+    volumeMounts:
+    - mountPath: "/config"
+      name: config-pvc
+  restartPolicy: Always
+  volumes:
+  - name: config-pvc
+    emptyDir: {}
