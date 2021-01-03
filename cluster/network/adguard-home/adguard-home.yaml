@@ -66,10 +66,10 @@ spec:
 
     resources:
       requests:
-        memory: 500Mi
-        cpu: 20m
+        memory: 1000Mi
+        cpu: 200m
       limits:
-        memory: 750Mi
+        memory: 2000Mi
 
   # Include config as a RO configMap
   valuesFrom:
