@@ -50,7 +50,7 @@ spec:
       enabled: false
     prometheus:
       serviceMonitor:
-        enabled: false
+        enabled: true
     probes:
       liveness:
         enabled: false
@@ -102,19 +102,19 @@ spec:
         memory: 1000Mi
       limits:
         memory: 2500Mi
-    additionalVolumeMounts:
-    - name: zigbee
-      mountPath: /dev/zigbee
-    additionalVolumes:
-    - name: zigbee
-      hostPath:
-        path: /dev/zigbee
+    # additionalVolumeMounts:
+    # - name: zigbee
+    #   mountPath: /dev/zigbee
+    # additionalVolumes:
+    # - name: zigbee
+    #   hostPath:
+    #     path: /dev/zigbee
     affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
+      # nodeAffinity:
+      #   requiredDuringSchedulingIgnoredDuringExecution:
+      #     nodeSelectorTerms:
+      #     - matchExpressions:
+      #       - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
@@ -124,14 +124,12 @@ spec:
               values:
               - plex
           topologyKey: "kubernetes.io/hostname"
-
     postgresql:
       enabled: true
       postgresqlDatabase: homeassistant
       persistence:
         enabled: true
         storageClass: "rook-ceph-block"
-
     influxdb:
       enabled: true
       architecture: standalone
