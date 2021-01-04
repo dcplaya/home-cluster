@@ -35,18 +35,8 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: "external"
-        # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-        nginx.ingress.kubernetes.io/auth-url: "https://auth.elcarpenter.com/oauth2/auth"
-        nginx.ingress.kubernetes.io/auth-signin: "https://auth.elcarpenter.com/oauth2/start"
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          # Bypass auth for requests from local network
-          # This works, but are there some security concerns?
-          satisfy any;
-          allow 192.168.0.0/16;
-          allow 172.16.0.0/12;
-          allow 10.0.0.0/8;
-          deny all;
+        kubernetes.io/ingress.class: "internal"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       hosts:
       - dns01.network.elcarpenter.com
       tls:
@@ -56,7 +46,7 @@ spec:
     service:
       type: LoadBalancer
       externalIPs:
-      - 10.201.50.20
+      - 10.201.50.11
     serviceTCP:
       enabled: true
     serviceUDP:
@@ -66,10 +56,10 @@ spec:
 
     resources:
       requests:
-        memory: 1000Mi
+        memory: 2000Mi
         cpu: 200m
       limits:
-        memory: 2000Mi
+        memory: 1000Mi
 
   # Include config as a RO configMap
   valuesFrom:
