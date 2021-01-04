@@ -101,6 +101,15 @@ spec:
                   class: ["ff"]
                   vendor: ["10c4"]
                   device: ["8a2a"]
+          - name: "conbee"
+            matchOn:
+              - usbId:
+                  vendor: ["1cf1"]
+                  device: ["0030"]
+              - usbId:
+                  class: ["ff"]
+                  vendor: ["1cf1"]
+                  device: ["0030"]
           - name: "coral-tpu"
             matchOn:
               - usbId:
