@@ -29,12 +29,12 @@ configAsCode:
       ratelimit_whitelist: []
       refuse_any: true
       upstream_dns:
-      - '[/elcarpenter.com/]10.201.1.1'
-      - '[/bergandbeans.com/]10.201.1.1'
-      - '[/network.elcarpenter.com/]10.201.1.1'
+      - '[/elcarpenter.com/]10.201.50.10'
+      - '[/bergandbeans.com/]10.10.200.1'
+      - '[/network.elcarpenter.com/]10.201.50.10'
       - '[/vpn.elcarpenter.com/]1.1.1.1'
       - '[/device.elcarpenter.com/]1.1.1.1'
-      - '[/cluster.elcarpenter.com/]10.201.1.1'
+      - '[/cluster.elcarpenter.com/]10.10.200.1'
       - https://1.1.1.1/dns-query
       - https://1.0.0.1/dns-query
       bootstrap_dns:
