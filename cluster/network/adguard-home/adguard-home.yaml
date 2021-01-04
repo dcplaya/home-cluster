@@ -39,29 +39,33 @@ spec:
       tls:
       - hosts:
         - dns01.network.elcarpenter.com
-    # service:
-    #   type: LoadBalancer
-    #   externalIPs:
-    #   - 10.201.50.11
-    # serviceTCP:
-    #   enabled: true
-    #   type: LoadBalancer
-    #   externalIPs:
-    #   - 10.201.50.11
-    serviceUDP:
-      enabled: true
+    service:
+      externalTrafficPolicy: Local
       type: LoadBalancer
       externalIPs:
       - 10.201.50.11
-    # serviceDNSOverTLS:
-    #   enabled: true
-    #   type: LoadBalancer
-    #   externalIPs:
-    #   - 10.201.50.11
+    serviceTCP:
+      enabled: true
+      externalTrafficPolicy: Local
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.50.11
+    serviceUDP:
+      enabled: true
+      externalTrafficPolicy: Local
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.50.11
+    serviceDNSOverTLS:
+      enabled: true
+      externalTrafficPolicy: Local
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.50.11
     resources:
       requests:
         memory: 1000Mi
-        cpu: 201m
+        cpu: 200m
       limits:
         memory: 2000Mi
   # Include config as a RO configMap
