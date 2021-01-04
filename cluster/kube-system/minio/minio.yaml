@@ -35,16 +35,13 @@ spec:
       existingClaim: "nfs-backup-pvc"
       storageClass: "backup"
       subPath: "minio"
-
     metrics:
       serviceMonitor:
         enabled: true
-
     nasgateway:
       enabled: true
       # Number of parallel instances
       replicas: 3
-
     service:
       type: LoadBalancer
       externalIPs:
@@ -53,21 +50,14 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: internal
-        kubernetes.io/ingressClassName: internal
-
     readinessProbe:
       initialDelaySeconds: 10
-
-    tolerations:
-    - key: "arm"
-      operator: "Exists"
     resources:
       requests:
         memory: 350Mi
         cpu: 25m
       limits:
         memory: 1000Mi
-
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -78,7 +68,6 @@ spec:
               values:
               - node00
               - node04
-
   valuesFrom:
   - kind: Secret
     name: "minio-helm-values"
