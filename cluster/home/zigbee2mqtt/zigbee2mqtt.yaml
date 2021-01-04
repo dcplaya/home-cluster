@@ -36,6 +36,7 @@ spec:
         server: "mqtt://vernemq"
       serial:
         port: /dev/conbee
+        adapter: deconz
       advanced:
         log_output:
         - console
