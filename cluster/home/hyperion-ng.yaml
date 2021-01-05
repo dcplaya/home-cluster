@@ -9,15 +9,15 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: radarr
-      version: 8.2.1
+      chart: hyperion-ng
+      version: 1.1.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
       interval: 5m
   values:
-    fullnameOverride: hyperion-ng
+    # fullnameOverride: hyperion-ng
     controllerType: deployment
     image:
       repository: sirfragalot/hyperion.ng
@@ -31,21 +31,6 @@ spec:
       type: LoadBalancer
       externalIPs:
       - 10.201.40.70
-      port:
-        port: 8090
-      additionalPorts:
-      - port: 19444
-        name: jsonservice
-        protocol: TCP
-        targetPort: 19444
-      - port: 19445
-        name: protobufservice
-        protocol: TCP
-        targetPort: 19445
-      - port: 19333
-        name: boblightservice
-        protocol: TCP
-        targetPort: 19333
     ingress:
       enabled: true
       annotations:
@@ -61,7 +46,6 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /root/.hyperion
         existingClaim: config-hyperion-ng
     podAnnotations:
       backup.velero.io/backup-volumes: config
