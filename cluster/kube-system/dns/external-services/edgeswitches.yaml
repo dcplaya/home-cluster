@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-  - host: es1.network.elcarpenter.com
+  - host: switch01.network.elcarpenter.com
     http:
       paths:
       - backend:
