@@ -37,9 +37,10 @@ spec:
           - cat
         filters:
           person:
-            min_area: 2500
+            min_area: 100
             max_area: 100000
-            threshold: 0.85
+            min_score: 0.10
+            threshold: 0.10
           dog:
             min_area: 1000
             max_area: 10000
@@ -56,7 +57,6 @@ spec:
             show_timestamp: false
           height: 1080
           width: 1920
-          take_frame: 1
         front-door:
           ffmpeg:
             input: rtsp://10.10.200.220:7447/X9WOTiGwNxmJfuBw
@@ -64,7 +64,6 @@ spec:
             show_timestamp: false
           height: 1080
           width: 1920
-          take_frame: 1
         back-door:
           ffmpeg:
             input: rtsp://10.10.200.220:7447/0suwuVeXNgcV0Cvg
@@ -72,7 +71,6 @@ spec:
             show_timestamp: false
           height: 1080
           width: 1920
-          take_frame: 1
     ingress:
       enabled: true
       annotations:
