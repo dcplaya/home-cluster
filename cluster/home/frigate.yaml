@@ -26,9 +26,9 @@ spec:
     coral:
       enabled: true
     config: |
-      web_port: 5000
+      web_port: 1883
       mqtt:
-        host: vernemq
+        host: mqtt.elcarpenter.com
         topic_prefix: frigate
       objects:
         track:
