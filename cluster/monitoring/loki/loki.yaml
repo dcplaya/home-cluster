@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     loki:
-      replicas: 3
+      replicas: 2
       persistence:
         enabled: false
       config:
@@ -45,7 +45,7 @@ spec:
           - loki-headless:7946
         schema_config:
           configs:
-          - from: 2020-05-15
+          - from: 2021-05-15
             store: boltdb-shipper
             object_store: s3
             schema: v11
