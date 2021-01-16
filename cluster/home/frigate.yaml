@@ -51,7 +51,7 @@ spec:
       cameras:
         living-room:
           ffmpeg:
-            input: rtsp://living-room.iot.elcarpenter.com:7447/qF1WMmPhPCE6gVCn
+            input: rtsp://10.10.200.220:7447/qF1WMmPhPCE6gVCn
           snapshots:
             show_timestamp: false
           height: 1080
@@ -59,7 +59,7 @@ spec:
           take_frame: 1
         front-door:
           ffmpeg:
-            input: rtsp://front-door.iot.elcarpenter.com:7447/X9WOTiGwNxmJfuBw
+            input: rtsp://10.10.200.220:7447/X9WOTiGwNxmJfuBw
           snapshots:
             show_timestamp: false
           height: 1080
@@ -67,7 +67,7 @@ spec:
           take_frame: 1
         back-door:
           ffmpeg:
-            input: rtsp://back-door.iot.elcarpenter.com:7447/0suwuVeXNgcV0Cvg
+            input: rtsp://10.10.200.220:7447/0suwuVeXNgcV0Cvg
           snapshots:
             show_timestamp: false
           height: 1080
