@@ -49,29 +49,29 @@ spec:
             max_area: 10000
             threshold: 0.85
       cameras:
-        doorbell:
-          ffmpeg:
-            input: rtsp://192.168.1.2:7447/818ALvS1HQ744KND
-          snapshots:
-            show_timestamp: false
-          height: 720
-          width: 960
-          take_frame: 1
-        house-garage:
-          ffmpeg:
-            input: rtsp://192.168.1.2:7447/q8nsMk5GB8lEnb7y
-          snapshots:
-            show_timestamp: false
-          height: 576
-          width: 1024
-          take_frame: 1
         living-room:
           ffmpeg:
-            input: rtsp://192.168.1.2:7447/pp1jGiFpb1AuVHRl
+            input: rtsp://living-room.iot.elcarpenter.com:7447/qF1WMmPhPCE6gVCn
           snapshots:
             show_timestamp: false
-          height: 576
-          width: 1024
+          height: 1080
+          width: 1920
+          take_frame: 1
+        front-door:
+          ffmpeg:
+            input: rtsp://front-door.iot.elcarpenter.com:7447/X9WOTiGwNxmJfuBw
+          snapshots:
+            show_timestamp: false
+          height: 1080
+          width: 1920
+          take_frame: 1
+        back-door:
+          ffmpeg:
+            input: rtsp://back-door.iot.elcarpenter.com:7447/0suwuVeXNgcV0Cvg
+          snapshots:
+            show_timestamp: false
+          height: 1080
+          width: 1920
           take_frame: 1
     ingress:
       enabled: true
