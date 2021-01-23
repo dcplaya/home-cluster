@@ -17,6 +17,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    apiService:
+      create: true
     extraArgs:
       kubelet-insecure-tls: true
       kubelet-preferred-address-types: InternalIP,ExternalIP,Hostname
