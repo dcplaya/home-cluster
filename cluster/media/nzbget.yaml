@@ -71,7 +71,6 @@ spec:
               values:
               - node00
               - node04
-
     resources:
       requests:
         memory: 260Mi
