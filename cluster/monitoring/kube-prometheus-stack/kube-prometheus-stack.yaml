@@ -199,6 +199,11 @@ spec:
             gnetId: 12833
             revision: 1
             datasource: Prometheus
+          # Ref: https://grafana.com/grafana/dashboards/12019
+          loki:
+            gnetId: 12019
+            revision: 2
+            datasource: Prometheus
       additionalDataSources:
       - name: Prometheus
         type: prometheus
