@@ -31,7 +31,12 @@ kubectl delete pvc/jackett-test-config
 ### Restore
 
 ```bash
-velero restore create --from-backup velero-daily-backup-20201120020022 --include-namespaces testing --selector "app.kubernetes.io/instance=jackett-test" --wait
+velero restore create --from-backup $backup --include-namespaces $namespace --selector "app.kubernetes.io/instance=jackett-test" --wait
+```
+
+Restore a specific PVC
+```bash
+velero restore create --from-backup velero-daily-backup-20210122020009 --include-namespaces media --selector "app.kubernetes.io/instance=plex" --include-resources pvc --namespace-mappings media:home --wait --show-labels
 ```
 
 * This should not interfere with the HelmRelease or require scaling helm-operator
