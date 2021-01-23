@@ -16,6 +16,10 @@ spec:
     volumeMounts:
     - mountPath: "/config"
       name: config-pvc
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 500Mi  
   restartPolicy: Always
   volumes:
   - name: config-pvc
