@@ -44,6 +44,16 @@ spec:
         existingClaim: config-overseer
     podAnnotations:
       backup.velero.io/backup-volumes: config
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - node00
+              - node04
     resources:
       requests:
         memory: 250Mi
