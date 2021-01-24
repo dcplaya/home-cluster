@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: qbittorrent
   namespace: media
+  labels: 
+    service: qbtorrent
 spec:
   interval: 5m
   chart:

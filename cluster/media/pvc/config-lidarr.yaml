@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-lidarr
   namespace: media
+  labels: 
+    service: lidarr
 spec:
   storageClassName: rook-ceph-block
   accessModes:

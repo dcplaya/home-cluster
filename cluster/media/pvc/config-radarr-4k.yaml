@@ -2,12 +2,14 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: config-sonarr-4k
+  name: config-radarr-4k
   namespace: media
+  labels: 
+    service: radarr-4k
 spec:
   storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 15Gi

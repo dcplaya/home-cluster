@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: nzbget
   namespace: media
+  labels: 
+    service: nzbget
 spec:
   interval: 5m
   chart:

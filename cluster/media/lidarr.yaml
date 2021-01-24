@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: lidarr
   namespace: media
+  labels: 
+    service: lidarr
 spec:
   interval: 5m
   chart:

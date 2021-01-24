@@ -4,6 +4,8 @@ kind: CronJob
 metadata:
   namespace: media
   name: plex-auto-collections
+  labels: 
+    service: plex-auto-collections
   annotations: {}
 spec:
   # Run once a day, every day, starting at 6PM

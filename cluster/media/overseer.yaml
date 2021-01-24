@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: overseerr
   namespace: media
+  labels: 
+    service: overseer
 spec:
   interval: 5m
   chart:

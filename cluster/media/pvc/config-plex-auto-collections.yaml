@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-plex-auto-collections
   namespace: media
+  labels: 
+    service: plex-auto-collections
 spec:
   storageClassName: rook-ceph-block
   accessModes:

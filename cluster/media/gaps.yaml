@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: gaps
   namespace: media
+  labels: 
+    service: gaps
 spec:
   interval: 5m
   chart:

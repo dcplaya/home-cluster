@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: nzbhydra2
   namespace: media
+  labels: 
+    service: nzbhydra2
 spec:
   interval: 5m
   chart:

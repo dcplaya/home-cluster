@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-bazarr
   namespace: media
+  labels: 
+    service: bazarr
 spec:
   storageClassName: rook-ceph-block
   accessModes:

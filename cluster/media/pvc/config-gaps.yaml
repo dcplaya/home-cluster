@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-gaps
   namespace: media
+  labels: 
+    service: gaps
 spec:
   storageClassName: rook-ceph-block
   accessModes:
