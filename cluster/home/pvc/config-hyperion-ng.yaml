@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-hyperion-ng
   namespace: home
+  labels:
+    service: hyperion-ng
 spec:
   storageClassName: rook-ceph-block
   accessModes:

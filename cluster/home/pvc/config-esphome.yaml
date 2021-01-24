@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-esphome
   namespace: home
+  labels:
+    service: esphome
 spec:
   storageClassName: rook-ceph-block
   accessModes:

@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: config-zigbee2mqtt
   namespace: home
+  labels:
+    service: zigbee2mqtt
 spec:
   storageClassName: rook-ceph-block
   accessModes:
