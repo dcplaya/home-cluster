@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: config-autoscan
   namespace: media
-  labels: 
+  labels:
     service: autoscan
 spec:
   storageClassName: rook-ceph-block

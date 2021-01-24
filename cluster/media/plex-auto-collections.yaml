@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   namespace: media
   name: plex-auto-collections
-  labels: 
+  labels:
     service: plex-auto-collections
   annotations: {}
 spec:

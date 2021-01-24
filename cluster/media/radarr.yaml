@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: radarr
   namespace: media
-  labels: 
+  labels:
     service: radarr
 spec:
   interval: 5m

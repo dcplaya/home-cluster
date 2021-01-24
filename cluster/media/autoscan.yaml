@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: autoscan
   namespace: media
-  labels: 
+  labels:
     service: autoscan
 spec:
   interval: 5m

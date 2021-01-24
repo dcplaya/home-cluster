@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: bazarr
   namespace: media
-  labels: 
+  labels:
     service: bazarr
 spec:
   interval: 5m

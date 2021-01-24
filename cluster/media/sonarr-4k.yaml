@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: sonarr-4k
   namespace: media
-  labels: 
+  labels:
     service: sonarr-4k
 spec:
   interval: 5m

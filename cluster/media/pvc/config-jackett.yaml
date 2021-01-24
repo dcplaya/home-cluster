@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: config-jackett
   namespace: media
-  labels: 
+  labels:
     service: jacket
 spec:
   storageClassName: rook-ceph-block
