@@ -4,7 +4,7 @@
 
 ```bash
 flux bootstrap github \
-  --version=v0.6.3 \
+  --version=v0.7.3 \
   --owner=dcplaya \
   --repository=home-cluster \
   --path=cluster \

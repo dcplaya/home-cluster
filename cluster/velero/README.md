@@ -36,7 +36,7 @@ velero restore create --from-backup $backup --include-namespaces $namespace --se
 
 Restore a specific PVC
 ```bash
-velero restore create --from-backup velero-daily-backup-20210122020009 --include-namespaces media --selector "app.kubernetes.io/instance=plex" --include-resources pvc --namespace-mappings media:home --wait --show-labels
+velero restore create --from-backup test-labels --include-namespaces media --selector "service=sonarr" --include-resources persistentvolumes --namespace-mappings media:testing-grounds --wait --show-labels
 ```
 
 * This should not interfere with the HelmRelease or require scaling helm-operator
