@@ -1,0 +1,47 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: kube-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.helm.sh/stable
+      chart: oauth2-proxy
+      version: 3.2.5
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-stable-charts
+        namespace: flux-system
+      interval: 5m
+  # dependsOn:
+  # - name: sealed-secrets
+  #   namespace: kube-system
+  values:
+    image:
+      repository: quay.io/pusher/oauth2_proxy
+      tag: v6.1.1
+    replicaCount: 3
+    ingress:
+      enabled: true
+      path: /oauth2
+      annotations:
+        kubernetes.io/ingress.class: "external"
+      hosts:
+      - "auth.elcarpenter.com"
+      tls:
+      - hosts:
+        - "auth.elcarpenter.com"
+    extraArgs:
+      provider: oidc
+      oidc-issuer-url: "https://elcarpenter.us.auth0.com/"
+      skip-provider-button:
+      pass-authorization-header:
+      email-domain: "*"
+      cookie-domain: ".elcarpenter.com"
+      whitelist-domain: ".elcarpenter.com"
+  valuesFrom:
+  - kind: Secret
+    name: "oauth2-proxy-helm-values"
