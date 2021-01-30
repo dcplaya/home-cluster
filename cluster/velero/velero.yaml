@@ -30,7 +30,7 @@ spec:
           s3ForcePathStyle: true
           s3Url: http://10.10.200.210:9000
           publicURL: http://10.10.200.210:9000
-          #publicUrl: https://minio.storage.elcarpenter.com
+          # publicUrl: https://minio.storage.elcarpenter.com
       volumeSnapshotLocation:
         name: aws
         config:
