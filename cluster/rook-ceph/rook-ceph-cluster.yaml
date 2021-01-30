@@ -13,7 +13,7 @@ spec:
   continueUpgradeAfterChecksEvenIfNotHealthy: false
   removeOSDsIfOutAndSafeToRemove: false
   mon:
-    count: 4
+    count: 5
     allowMultiplePerNode: false
   monitoring:
     enabled: true
