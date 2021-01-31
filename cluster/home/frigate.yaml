@@ -75,7 +75,7 @@ spec:
           width: 1920
         back-door:
           ffmpeg:
-            inputs: 
+            inputs:
               - path: rtsp://10.10.200.220:7447/0suwuVeXNgcV0Cvg
                 roles:
                   - detect

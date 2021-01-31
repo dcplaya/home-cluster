@@ -37,11 +37,11 @@ spec:
       http:
         port: 3000
       # ssh:
-      #   type: LoadBalancer
-      #   port: 1337
-      #   externalTrafficPolicy: Local
-      #   externalIPs:
-      #   - 192.168.69.101
+        # type: LoadBalancer
+        # port: 1337
+        # externalTrafficPolicy: Local
+        # externalIPs:
+        # - 192.168.69.101
     gitea:
       admin:
         username: "dcplaya"

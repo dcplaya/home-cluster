@@ -94,27 +94,20 @@ spec:
         - name: config
           mountPath: /config
         # - name: deploykey
-        #   mountPath: /root/.ssh/id_rsa
-        #   subPath: id_rsa
+          # mountPath: /root/.ssh/id_rsa
+          # subPath: id_rsa
     resources:
       requests:
         cpu: 500m
         memory: 1000Mi
       limits:
         memory: 2500Mi
-    # additionalVolumeMounts:
-    # - name: zigbee
-    #   mountPath: /dev/zigbee
-    # additionalVolumes:
-    # - name: zigbee
-    #   hostPath:
-    #     path: /dev/zigbee
     affinity:
       # nodeAffinity:
-      #   requiredDuringSchedulingIgnoredDuringExecution:
-      #     nodeSelectorTerms:
-      #     - matchExpressions:
-      #       - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
+        # requiredDuringSchedulingIgnoredDuringExecution:
+          # nodeSelectorTerms:
+          # - matchExpressions:
+            # - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:

@@ -53,12 +53,12 @@ spec:
           persistentVolumeClaim:
             claimName: nfs-nas-media-pvc
       # affinity:
-      #   nodeAffinity:
-      #     requiredDuringSchedulingIgnoredDuringExecution:
-      #       nodeSelectorTerms:
-      #         - matchExpressions:
-      #           - key: kubernetes.io/hostname
-      #             operator: NotIn
-      #             values:
-      #             - node00
-      #             - node04
+        # nodeAffinity:
+          # requiredDuringSchedulingIgnoredDuringExecution:
+            # nodeSelectorTerms:
+              # - matchExpressions:
+                # - key: kubernetes.io/hostname
+                  # operator: NotIn
+                  # values:
+                  # - node00
+                  # - node04
