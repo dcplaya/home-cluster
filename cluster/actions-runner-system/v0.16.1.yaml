@@ -1,3 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: controller-manager
+  name: actions-runner-system
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -53,6 +59,18 @@ spec:
                     items:
                       type: string
                     type: array
+                  scaleDownFactor:
+                    description: ScaleDownFactor is the multiplicative factor applied to the current number of runners used to determine how many pods should be removed.
+                    type: string
+                  scaleDownThreshold:
+                    description: ScaleDownThreshold is the percentage of busy runners less than which will trigger the hpa to scale the runners down.
+                    type: string
+                  scaleUpFactor:
+                    description: ScaleUpFactor is the multiplicative factor applied to the current number of runners used to determine how many pods should be added.
+                    type: string
+                  scaleUpThreshold:
+                    description: ScaleUpThreshold is the percentage of busy runners greater than which will trigger the hpa to scale runners up.
+                    type: string
                   type:
                     description: Type is the type of metric to be used for autoscaling. The only supported Type is TotalNumberOfQueuedAndInProgressWorkflowRuns
                     type: string
@@ -5112,16 +5130,6 @@ spec:
     spec:
       containers:
       - args:
-        - --secure-listen-address=0.0.0.0:8443
-        - --upstream=http://127.0.0.1:8080/
-        - --logtostderr=true
-        - --v=10
-        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
-        name: kube-rbac-proxy
-        ports:
-        - containerPort: 8443
-          name: https
-      - args:
         - --metrics-addr=127.0.0.1:8080
         - --enable-leader-election
         - --sync-period=10m
@@ -5148,7 +5156,7 @@ spec:
               optional: true
         - name: GITHUB_APP_PRIVATE_KEY
           value: /etc/actions-runner-controller/github_app_private_key
-        image: summerwind/actions-runner-controller:v0.15.0
+        image: summerwind/actions-runner-controller:v0.16.1
         name: manager
         ports:
         - containerPort: 9443
@@ -5168,6 +5176,16 @@ spec:
         - mountPath: /etc/actions-runner-controller
           name: controller-manager
           readOnly: true
+      - args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --upstream=http://127.0.0.1:8080/
+        - --logtostderr=true
+        - --v=10
+        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: 8443
+          name: https
       terminationGracePeriodSeconds: 10
       volumes:
       - name: cert
