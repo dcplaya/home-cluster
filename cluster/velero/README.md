@@ -35,6 +35,7 @@ kubectl delete pvc/jackett-test-config
 - Push secret
 - Push velero
 - Get rook-ceph up and running
+- Scale down flux!!
 - Restore ONLY the following NS
     media
     home
@@ -42,7 +43,7 @@ kubectl delete pvc/jackett-test-config
 
 
 ```bash
-velero restore create --from-backup $backup --include-namespaces network --selector "app.kubernetes.io/instance=jackett-test" --wait
+velero restore create --from-backup test-labels --include-namespaces media --selector "app.kubernetes.io/instance=plex" --wait
 ```
 
 Restore a specific PVC
