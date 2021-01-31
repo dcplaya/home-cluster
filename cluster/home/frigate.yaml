@@ -64,6 +64,15 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
+        dining-room:
+          ffmpeg:
+            inputs:
+              - path: rtsp://10.10.200.220:7447/MbKHSEuTmxywh2f5
+                roles:
+                  - detect
+                  - rtmp
+          height: 1080
+          width: 1920
         front-door:
           ffmpeg:
             inputs:
