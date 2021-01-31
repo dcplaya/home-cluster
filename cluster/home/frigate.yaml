@@ -57,7 +57,7 @@ spec:
       cameras:
         living-room:
           ffmpeg:
-            input:
+            inputs:
               - path: rtsp://10.10.200.220:7447/qF1WMmPhPCE6gVCn
                 roles:
                   - detect
@@ -66,7 +66,7 @@ spec:
           width: 1920
         front-door:
           ffmpeg:
-            input:
+            inputs:
               - path: rtsp://10.10.200.220:7447/X9WOTiGwNxmJfuBw
                 roles:
                   - detect
@@ -75,7 +75,7 @@ spec:
           width: 1920
         back-door:
           ffmpeg:
-            input: 
+            inputs: 
               - path: rtsp://10.10.200.220:7447/0suwuVeXNgcV0Cvg
                 roles:
                   - detect
