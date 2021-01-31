@@ -1,0 +1,104 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+  namespace: media
+  labels:
+    service: plex
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: plex
+      version: 2.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: plexinc/pms-docker
+      tag: plexpass
+      pullPolicy: IfNotPresent
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "external"
+      hosts:
+      - "plex.media.elcarpenter.com"
+      tls:
+      - hosts:
+        - "plex.media.elcarpenter.com"
+
+    advertiseIp: "https://plex.media.elcarpenter.com:443"
+    timezone: "America/Los_Angeles"
+    ## Set the IDs for proper NAS sharing
+    plexUid: 1000
+    plexGid: 100
+
+    serviceTCP:
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.70.20
+      externalTrafficPolicy: Local
+    serviceUDP:
+      type: LoadBalancer
+      externalIPs:
+      - 10.201.70.20
+      externalTrafficPolicy: Local
+    persistence:
+      config:
+        claimName: config-plex
+      transcode:
+        enabled: false
+        emptyDir:
+          medium: "Memory"
+      data:
+        enabled: false
+      extraMounts:
+      - name: media
+        claimName: nfs-nas-merged-media-pvc
+        mountPath: mnt/unionfs
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+    logging:
+      promtail:
+        enabled: false
+        loki:
+          url: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+              - node04
+              # - k8s-worker-e
+    resources:
+      requests:
+        ## 1000m = 1 core
+        ## Setting request high enough so this doesnt get scheduled on i3 NUCs
+        cpu: 8000m
+        memory: 5000Mi
+      limits:
+        gpu.intel.com/i915: 1
+        memory: 9000Mi
+
+    # Probes configuration
+    probes:
+      liveness:
+        failureThreshold: 5
+        periodSeconds: 10
+      readiness:
+        failureThreshold: 5
+        periodSeconds: 10
+      startup:
+        # Increased inital delay since the container downloads the binary before running
+        initialDelaySeconds: 60
+        failureThreshold: 30
+        periodSeconds: 10
