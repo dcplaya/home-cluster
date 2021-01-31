@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: blakeblackshear/frigate
-      tag: 0.8.0-amd64
+      tag: 0.8.1-amd64
     podAnnotations:
       configmap.reloader.stakater.com/reload: "frigate"
     # timezone: America/Los_Angeles
