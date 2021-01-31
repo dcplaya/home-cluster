@@ -81,7 +81,7 @@ spec:
         mountPath: /data
         existingClaim: config-zigbee2mqtt
     podAnnotations:
-      backup.velero.io/backup-volumes: dat
+      backup.velero.io/backup-volumes: data
     additionalVolumeMounts:
     - name: usb
       mountPath: /dev/conbee

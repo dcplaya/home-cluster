@@ -20,15 +20,14 @@ spec:
     image:
       repository: blakeblackshear/frigate
       tag: 0.8.1-amd64
-    podAnnotations:
-      configmap.reloader.stakater.com/reload: "frigate"
     # timezone: America/Los_Angeles
     persistence:
       data:
         enabled: true
         existingClaim: data-frigate
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: data
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "frigate"
+      backup.velero.io/backup-volumes: data
     coral:
       enabled: true
     config: |
