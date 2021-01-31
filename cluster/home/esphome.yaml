@@ -51,12 +51,8 @@ spec:
       config:
         enabled: true
         existingClaim: config-esphome
-    #     storageClass: "rook-ceph-block"
-    #     accessMode: ReadWriteOnce
-    #     size: "1Gi"
     podAnnotations:
       backup.velero.io/backup-volumes: config
-
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -66,7 +62,6 @@ spec:
               operator: NotIn
               values:
               - node04
-
     resources:
       requests:
         memory: 250Mi
