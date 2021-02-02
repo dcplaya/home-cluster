@@ -17,6 +17,7 @@ spec:
     spec:
       template:
         spec:
+          suspend: true
           containers:
           - name: plex-auto-collections
             image: mza921/plex-auto-collections:latest
