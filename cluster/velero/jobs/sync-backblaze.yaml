@@ -43,7 +43,7 @@ spec:
             - "--checkers"
             - "24"
             - "--bwlimit"
-            - "25M"
+            - "50M"
             - "minio:velero"
             - "backblaze-velero-crypt:/"
             volumeMounts:
