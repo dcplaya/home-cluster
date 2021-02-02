@@ -8,6 +8,7 @@ metadata:
     service: plex-auto-collections
   annotations: {}
 spec:
+  suspend: true
   # Run once a day, every day, starting at 6PM
   schedule: "0 18 * * *"
   failedJobsHistoryLimit: 1
@@ -17,7 +18,6 @@ spec:
     spec:
       template:
         spec:
-          suspend: true
           containers:
           - name: plex-auto-collections
             image: mza921/plex-auto-collections:latest
