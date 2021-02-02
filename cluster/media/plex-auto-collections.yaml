@@ -24,7 +24,7 @@ spec:
             imagePullPolicy: Always
 
             command: ["sleep"]
-            args: ["999999999999"]
+            args: ["99999999999"]
             # command: ["/usr/local/bin/python3"]
             # args: ["/app/plex_auto_collections.py", "-u"]
 
