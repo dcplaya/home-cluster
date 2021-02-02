@@ -12,7 +12,8 @@ metadata:
     fluxcd.io/ignored: "false"
     fluxcd.io/automated: "false"
 spec:
-  # Run once a day, every day, starting at 6PM
+  suspend: false
+  # Run once a day, every day, starting at 3AM
   schedule: "0 3 * * *"
   failedJobsHistoryLimit: 1
   successfulJobsHistoryLimit: 1
