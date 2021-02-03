@@ -266,6 +266,7 @@ spec:
         - hosts:
           - "prometheus.monitoring.elcarpenter.com"
       prometheusSpec:
+        shards: null
         replicas: 3
         replicaExternalLabelName: "replica"
         podAntiAffinity: "hard"
