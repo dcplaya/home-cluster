@@ -87,7 +87,7 @@ spec:
         memory: 5000Mi
       limits:
         gpu.intel.com/i915: 1
-        memory: 9000Mi
+        memory: 12000Mi
 
     # Probes configuration
     probes:
