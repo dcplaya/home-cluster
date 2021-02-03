@@ -37,7 +37,7 @@ spec:
       type: S3
       config:
         bucket: "thanos"
-        endpoint: "minio.kube-system.svc:9000"
+        endpoint: "10.10.200.210:9000"
         region: ""
         insecure: true
         signature_version2: false

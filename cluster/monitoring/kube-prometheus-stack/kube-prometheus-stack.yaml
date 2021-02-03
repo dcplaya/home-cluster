@@ -322,7 +322,7 @@ spec:
         #   metrics_path: /minio/prometheus/metrics
         #   static_configs:
         #   - targets:
-        #     - minio.kube-system.svc:9000
+        #     - 10.10.200.210:9000
   valuesFrom:
   - kind: Secret
     name: "kube-prometheus-stack-helm-values"
