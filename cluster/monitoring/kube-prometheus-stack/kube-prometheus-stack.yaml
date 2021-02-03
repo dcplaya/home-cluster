@@ -29,7 +29,13 @@ spec:
         limits:
           memory: 2000Mi
     prometheusOperator:
-      createCustomResource: false
+      createCustomResource: true
+      prometheusConfigReloaderImage:
+        repository: quay.io/prometheus-operator/prometheus-config-reloader
+        tag: v0.44.0
+      configmapReloadImage:
+        repository: docker.io/jimmidyson/configmap-reload
+        tag: v0.4.0
     alertmanager:
       config:
         global:
@@ -162,6 +168,9 @@ spec:
           velero:
             url: https://grafana.com/api/dashboards/11055/revisions/2/download
             datasource: Prometheus
+          speedtest:
+            url: https://raw.githubusercontent.com/billimek/prometheus-speedtest-exporter/master/speedtest-exporter.json
+            datasource: Prometheus
           nginx-dashboard:
             url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/grafana/dashboards/nginx.json
             datasource: Prometheus
@@ -242,10 +251,14 @@ spec:
       enabled: false
       endpoints:
       - 10.10.200.50
+      - 10.10.200.51
+      - 10.10.200.52
     kubeScheduler:
       enabled: false
       endpoints:
       - 10.10.200.50
+      - 10.10.200.51
+      - 10.10.200.52
     kubeProxy:
       enabled: false
     kubelet:
@@ -291,7 +304,7 @@ spec:
                   storage: 10Gi
         thanos:
           image: quay.io/thanos/thanos:v0.15.0
-          version: v0.15.0
+          version: v0.17.2
           objectStorageConfig:
             name: thanos
             key: object-store.yaml
