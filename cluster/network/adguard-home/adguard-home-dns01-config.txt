@@ -111,6 +111,7 @@ configAsCode:
     - '@@||schwab.com^                    # My Bank'
     - '@@||chase.com^                     # Credit Card'
     - '@@||chasecdn.com^                  # Chase''s content delivery network'
+    - '@@||etrade.com^                    # E-Trade's'
     dhcp:
       enabled: false
       interface_name: ""
