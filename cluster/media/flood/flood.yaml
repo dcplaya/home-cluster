@@ -24,6 +24,8 @@ spec:
       repository: jesec/flood
       tag: 4.4.0
       pullPolicy: Always
+    command: ["sleep"]
+    args: ["99999999999"]
     env:
       FLOOD_OPTION_RUNDIR: /data
       FLOOD_OPTION_AUTH: "none"
