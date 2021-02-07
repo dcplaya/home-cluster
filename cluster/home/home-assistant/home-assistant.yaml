@@ -46,6 +46,19 @@ spec:
       tls:
       - hosts:
         - "home.elcarpenter.com"
+      additionalIngresses:
+      - enabled: false
+      #   nameSuffix: "api"
+        annotations:
+          kubernetes.io/ingress.class: "external"
+        hosts:
+          - host: home.elcarpenter.com
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+           hosts:
+             - "home.elcarpenter.com"
     monitoring:
       enabled: false
     prometheus:
