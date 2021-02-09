@@ -41,6 +41,7 @@ spec:
             - "--ignore-errors"
             - "--fast-list"
             - "--b2-hard-delete"
+            - "--retries 1"
             # - "--transfers"
             # - "24"
             # - "--checkers"
