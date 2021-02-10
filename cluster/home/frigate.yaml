@@ -54,6 +54,12 @@ spec:
         coral:
           type: edgetpu
           device: usb
+      ffmpeg:
+        hwaccel_args:
+          - -hwaccel
+          - qsv
+          - -qsv_device
+          - /dev/dri/renderD128
       cameras:
         living-room:
           ffmpeg:
@@ -64,6 +70,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
+          fps: 5
         dining-room:
           ffmpeg:
             inputs:
@@ -73,6 +80,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
+          fps: 5
         front-door:
           ffmpeg:
             inputs:
@@ -82,6 +90,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
+          fps: 5
         back-door:
           ffmpeg:
             inputs:
@@ -91,6 +100,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
+          fps: 5
     ingress:
       enabled: true
       annotations:
