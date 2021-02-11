@@ -49,6 +49,13 @@ spec:
             # - "50M"
             - "minio:/velero"
             - "backblaze-velero-crypt:/"
+            resources:
+              requests:
+                memory: 1000Mi
+                cpu: 1500m
+              limits:
+                cpu: 2500m
+                memory: 2000Mi
             volumeMounts:
             - mountPath: /config
               name: rclone-sync-backup
