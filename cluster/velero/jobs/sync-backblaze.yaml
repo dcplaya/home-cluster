@@ -67,3 +67,13 @@ spec:
           - name: rclone-sync-backup
             persistentVolumeClaim:
               claimName: nfs-config-pvc
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                    - key: kubernetes.io/hostname
+                      operator: NotIn
+                      values:
+                      - node00
+                      # - node04
