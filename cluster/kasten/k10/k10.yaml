@@ -28,9 +28,10 @@ spec:
     auth:
       basicAuth:
         enabled: true
-        secretName: "media/nginx-basic-auth"
+        # secretName: "media/nginx-basic-auth"
+        htpasswd: "carpenam:$apr1$xt51w2li$iUztnVyN.vnP2DcguNPZD0"
       k10AdminUsers:
-      - drewmich@elcarpenter.com
+      - carpenam
       # oidcAuth:
       #   enabled: true
       #   providerURL: https://dex.holthome.net
