@@ -61,8 +61,8 @@ spec:
         - path: /
           pathType: Prefix
       tls:
-      - hosts:
-        - "k10.storage.elcarpenter.com"
+        enabled: true
+        secretName: cert-manager/letsencrypt-production
   #   resources:
   #     requests:
   #       memory: 250Mi
