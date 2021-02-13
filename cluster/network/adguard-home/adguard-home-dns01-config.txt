@@ -65,7 +65,7 @@ configAsCode:
       safebrowsing_cache_size: 1048576
       safesearch_cache_size: 1048576
       parental_cache_size: 1048576
-      cache_time: 30
+      cache_time: 31
       rewrites: []
       blocked_services:
       - tiktok
