@@ -37,7 +37,9 @@ spec:
       #   clientID: k10
     clusterName: k8s
     ingress:
-      enabled: true
+      create: true
+      class: "nginx"
+      host: k10.storage.elcarpenter.com
       annotations:
         kubernetes.io/ingress.class: "internal"
         # nginx.ingress.kubernetes.io/auth-url: "https://auth.elcarpenter.com/oauth2/auth"
@@ -51,13 +53,13 @@ spec:
         # #   allow 10.0.0.0/8;
         # #   deny all;
       hosts:
-      - host: kasten.storage.elcarpenter.com
+      - host: k10.storage.elcarpenter.com
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "kasten.storage.elcarpenter.com"
+        - "k10.storage.elcarpenter.com"
   #   resources:
   #     requests:
   #       memory: 250Mi
