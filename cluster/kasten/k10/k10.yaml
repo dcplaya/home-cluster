@@ -26,6 +26,9 @@ spec:
       persistence:
         storageClass: rook-ceph-block
     auth:
+      basicAuth:
+        enabled: true
+        secretName: media/nginx-basic-auth
       k10AdminUsers:
       - drewmich@elcarpenter.com
       # oidcAuth:
