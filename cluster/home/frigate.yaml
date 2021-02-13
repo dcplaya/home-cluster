@@ -27,11 +27,11 @@ spec:
         existingClaim: data-frigate
     extraVolumes:
     - name: media-frigate
-      mountPath: "/media/frigate"
-    extraVolumeMounts:
-    - name: media-frigate
       persistentVolumeClaim:
         claimName: media-frigate
+    extraVolumeMounts:
+    - name: media-frigate
+      mountPath: "/media/frigate"
     podAnnotations:
       configmap.reloader.stakater.com/reload: "frigate"
       backup.velero.io/backup-volumes: data
