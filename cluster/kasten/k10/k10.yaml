@@ -16,7 +16,7 @@ spec:
         kind: HelmRepository
         name: kasten-charts
         namespace: flux-system
-      interval: 6m
+      interval: 5m
   values:
     eula:
       accept: true
@@ -28,7 +28,7 @@ spec:
     auth:
       basicAuth:
         enabled: true
-        secretName: media/nginx-basic-auth
+        secretName: "media/nginx-basic-auth"
       k10AdminUsers:
       - drewmich@elcarpenter.com
       # oidcAuth:
@@ -62,7 +62,7 @@ spec:
           pathType: Prefix
       tls:
         enabled: true
-        secretName: cert-manager/letsencrypt-production
+        secretName: "kube-system/elcarpenter-com-tls"
   #   resources:
   #     requests:
   #       memory: 250Mi
