@@ -22,6 +22,31 @@ spec:
     spec:
       template:
         spec:
+          restartPolicy: OnFailure
+          initContainers:
+          - name: rclone-conf
+            image: alpine/git:v2.30.0
+            env:
+            - name: GITEA_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: gitea-token
+                  key: gitea-token
+            command:
+            - "/bin/sh"
+            - "-ec"
+            - |
+              set -o nounset
+              set -o errexit
+              if [ -z "${GITEA_TOKEN}" ]; then
+                printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
+                exit 1
+              fi
+              git clone -- depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared/rclone-conf
+              exit 0
+            volumeMounts:
+            - name: shared
+              mountPath: /shared
           containers:
           - name: rclone
             image: rclone/rclone:1.54
@@ -36,7 +61,7 @@ spec:
             # - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
             - "-vvv"
             - "--config"
-            - "/config/rclone.conf"
+            - "/shared/RClone/Configs/default.conf"
             - "sync"
             - "--ignore-errors"
             - "--fast-list"
@@ -57,13 +82,9 @@ spec:
                 cpu: 2500m
                 # memory: 2000Mi
             volumeMounts:
-            - mountPath: /config
-              name: rclone-sync-backup
-              subPath: rclone
-              readOnly: false
-          restartPolicy: Never
+            - mountPath: /shared
+              name: shared
           volumes:
           # Location of rclone.conf
-          - name: rclone-sync-backup
-            persistentVolumeClaim:
-              claimName: nfs-config-pvc
+          - name: shared
+            emptyDir: {}
