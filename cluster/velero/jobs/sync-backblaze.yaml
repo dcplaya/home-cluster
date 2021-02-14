@@ -35,7 +35,8 @@ spec:
             command:
             - /bin/sh
             - "-c"
-            - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
+            - "ping git.dev.elcarpenter.com"
+            # - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
             # - "/bin/sh"
             # - "-ec"
             # - |
