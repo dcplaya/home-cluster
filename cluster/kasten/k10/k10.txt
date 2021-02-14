@@ -4,9 +4,9 @@ auth:
   - drewmich@elcarpenter.com
   oidcAuth:
     enabled: true
-    providerURL: https://auth.elcarpenter.com/oauth2/auth
+    providerURL: "https://elcarpenter.us.auth0.com/"
     redirectURL: https://k10.elcarpenter.com
-    scopes: "profile email"
-    usernameClaim: "email"
+    scopes: "*"
+    usernameClaim: "*"
     clientID: "${AUTH0_CLIENT_ID}"
     clientSecret: "${AUTH0_CLIENT_SECRET}"
