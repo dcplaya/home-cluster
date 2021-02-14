@@ -23,6 +23,9 @@ spec:
       template:
         spec:
           restartPolicy: OnFailure
+          dnsConfig:
+            nameservers:
+            - 10.201.50.10
           initContainers:
           - name: rclone-conf
             image: alpine/git:v2.30.0
