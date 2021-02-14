@@ -45,7 +45,7 @@ spec:
                 printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
                 exit 1
               fi
-              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared/rclone-conf
+              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared
               exit 0
             volumeMounts:
             - name: shared
@@ -58,10 +58,8 @@ spec:
             - name: TZ
               value: "America/Los_Angeles"
             # command: ["rclone"]
-            command: ["/bin/sh"]
-            args:
-            # - "-c"
-            - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
+            command: ["apk update && apk add openssh && apk add rsync && sleep 600000000m"]
+            # args:
             # - "-vvv"
             # - "--config"
             # - "/shared/RClone/Configs/default.conf"
