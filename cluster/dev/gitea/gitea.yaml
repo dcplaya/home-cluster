@@ -23,6 +23,8 @@ spec:
     persistence:
       enabled: true
       existingClaim: config-gitea
+    podAnnotations:
+      backup.velero.io/backup-volumes: config,data
     ingress:
       enabled: true
       annotations:
@@ -82,6 +84,8 @@ spec:
         tag: 11.11.0
       persistence:
         storageClass: "rook-ceph-block"
+      podAnnotations:
+        backup.velero.io/backup-volumes: data
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
