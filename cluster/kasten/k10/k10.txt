@@ -1,0 +1,12 @@
+auth:
+  k10AdminUsers:
+  - carpenam
+  - drewmich@elcarpenter.com
+  oidcAuth:
+    enabled: true
+    providerURL: https://auth.elcarpenter.com/oauth2/auth
+    redirectURL: https://k10.elcarpenter.com
+    scopes: "profile email"
+    usernameClaim: "email"
+    clientID: "${AUTH0_CLIENT_ID}"
+    clientSecret: "${AUTH0_CLIENT_SECRET}"
