@@ -30,8 +30,8 @@ spec:
       create: true
       class: "external"
       host: k10.storage.elcarpenter.com
-      # annotations:
-        # kubernetes.io/ingress.class: "internal"
+      annotations:
+        kubernetes.io/ingress.class: "external"
       hosts:
       - host: k10.storage.elcarpenter.com
         paths:
