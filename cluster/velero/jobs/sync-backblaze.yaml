@@ -57,10 +57,10 @@ spec:
             env:
             - name: TZ
               value: "America/Los_Angeles"
-              command:
-              - /bin/sh
-              - "-c"
-              - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
+            command:
+            - /bin/sh
+            - "-c"
+            - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
             # command: ["rclone"]
             # args:
             # - "-vvv"
