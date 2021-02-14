@@ -38,12 +38,12 @@ spec:
     service:
       http:
         port: 3000
-      # ssh:
-        # type: LoadBalancer
-        # port: 1337
-        # externalTrafficPolicy: Local
-        # externalIPs:
-        # - 192.168.69.101
+      ssh:
+        type: LoadBalancer
+        port: 22
+        externalTrafficPolicy: Local
+        externalIPs:
+        - 10.201.50.60
     gitea:
       admin:
         username: "dcplaya"
@@ -53,8 +53,8 @@ spec:
         server:
           ROOT_URL: https://git.dev.elcarpenter.com
           DISABLE_SSH: true
-          # SSH_PORT: 1337
-          # SSH_LISTEN_PORT: 22
+          SSH_PORT: 1337
+          SSH_LISTEN_PORT: 22
         respository:
           DEFAULT_PRIVATE: true
         admin:
