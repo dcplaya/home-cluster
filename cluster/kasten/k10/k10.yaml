@@ -6,7 +6,7 @@ metadata:
   namespace: kasten
 spec:
   releaseName: k10
-  interval: 5m
+  interval: 6m
   chart:
     spec:
       # renovate: registryUrl=https://charts.kasten.io/
