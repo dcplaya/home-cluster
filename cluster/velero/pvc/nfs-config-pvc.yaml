@@ -10,4 +10,4 @@ spec:
   storageClassName: "rclone-config"
   resources:
     requests:
-      storage: 1Mi
+      storage: 2Mi

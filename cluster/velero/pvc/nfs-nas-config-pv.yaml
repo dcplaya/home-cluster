@@ -6,7 +6,7 @@ metadata:
 spec:
   storageClassName: "rclone-config"
   capacity:
-    storage: 1Mi
+    storage: 2Mi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
