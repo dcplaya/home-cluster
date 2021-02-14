@@ -28,10 +28,10 @@ spec:
     clusterName: k8s
     ingress:
       create: true
-      class: "internal"
+      class: "external"
       host: k10.storage.elcarpenter.com
-      annotations:
-        kubernetes.io/ingress.class: "internal"
+      # annotations:
+        # kubernetes.io/ingress.class: "internal"
       hosts:
       - host: k10.storage.elcarpenter.com
         paths:
