@@ -33,17 +33,20 @@ spec:
                   name: gitea-pat
                   key: token
             command:
-            - "/bin/sh"
-            - "-ec"
-            - |
-              set -o nounset
-              set -o errexit
-              if [ -z "${GITEA_TOKEN}" ]; then
-                printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
-                exit 1
-              fi
-              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared/rclone-conf
-              exit 0
+            - /bin/sh
+            - "-c"
+            - "apk update && apk add openssh && apk add rsync && sleep 600000000m"
+            # - "/bin/sh"
+            # - "-ec"
+            # - |
+            #   set -o nounset
+            #   set -o errexit
+            #   if [ -z "${GITEA_TOKEN}" ]; then
+            #     printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
+            #     exit 1
+            #   fi
+            #   git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared/rclone-conf
+            #   exit 0
             volumeMounts:
             - name: shared
               mountPath: /shared
