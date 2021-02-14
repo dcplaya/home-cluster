@@ -57,24 +57,23 @@ spec:
             env:
             - name: TZ
               value: "America/Los_Angeles"
-            # command: ["rclone"]
-            command: ["apk update && apk add openssh && apk add rsync && sleep 600000000m"]
-            # args:
-            # - "-vvv"
-            # - "--config"
-            # - "/shared/RClone/Configs/default.conf"
-            # - "sync"
-            # - "--ignore-errors"
-            # - "--fast-list"
-            # - "--b2-hard-delete"
-            # - "--transfers"
-            # - "24"
-            # - "--checkers"
-            # - "24"
-            # - "--bwlimit"
-            # - "50M"
-            # - "minio:velero"
-            # - "backblaze-velero-crypt:/"
+            command: ["rclone"]
+            args:
+            - "-vvv"
+            - "--config"
+            - "/shared/RClone/Configs/default.conf"
+            - "sync"
+            - "--ignore-errors"
+            - "--fast-list"
+            - "--b2-hard-delete"
+            - "--transfers"
+            - "24"
+            - "--checkers"
+            - "24"
+            - "--bwlimit"
+            - "50M"
+            - "minio:velero"
+            - "backblaze-velero-crypt:/"
             resources:
               requests:
                 memory: 1000Mi
