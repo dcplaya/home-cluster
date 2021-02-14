@@ -30,8 +30,8 @@ spec:
             - name: GITEA_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: gitea-token
-                  key: gitea-token
+                  name: gitea-pat
+                  key: gitea-pat
             command:
             - "/bin/sh"
             - "-ec"

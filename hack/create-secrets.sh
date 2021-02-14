@@ -103,13 +103,13 @@ kubectl create secret generic qbittorrent \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
-# # gitea personal access token
-# kubectl create secret generic gitea-pat \
-#     --from-literal=token="${GITEA_PAT}" \
-#     --namespace velero --dry-run=client -o json |
-#     kubeseal --format=yaml --cert="${PUB_CERT}" \
-#         >>"${GENERATED_SECRETS}"
-# echo "---" >>"${GENERATED_SECRETS}"
+# gitea personal access token
+kubectl create secret generic gitea-pat \
+    --from-literal=token="${GITEA_PAT}" \
+    --namespace velero --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
 
 # # sonarr episode prune - default namespace
 # kubectl create secret generic sonarr-episode-prune \
