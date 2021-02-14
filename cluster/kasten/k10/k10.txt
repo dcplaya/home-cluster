@@ -5,9 +5,10 @@ auth:
   oidcAuth:
     enabled: true
     providerURL: "https://elcarpenter.us.auth0.com/"
-    redirectURL: "https://k10.storage.elcarpenter.com"
-    #redirectURL: "https://auth.elcarpenter.com/oauth2/callback"
-    scopes: "openid%20profile%20email&"
+    #redirectURL: "https://k10.storage.elcarpenter.com/"
+    redirectURL: "https://k10.storage.elcarpenter.com/oauth2/callback"
+    #scopes: "openid%20profile%20email&"
+    scopes: "openid" 
     #usernameClaim: "*"
     clientID: "${AUTH0_CLIENT_ID}"
     clientSecret: "${AUTH0_CLIENT_SECRET}"

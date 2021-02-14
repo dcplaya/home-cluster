@@ -28,7 +28,7 @@ spec:
     clusterName: k8s
     ingress:
       create: true
-      class: "nginx"
+      class: "internal"
       host: k10.storage.elcarpenter.com
       annotations:
         kubernetes.io/ingress.class: "internal"
