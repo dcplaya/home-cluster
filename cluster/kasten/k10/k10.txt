@@ -2,8 +2,11 @@ auth:
   k10AdminUsers:
   - carpenam
   - drewmich@elcarpenter.com
-  oidcAuth:
+  basicAuth:
     enabled: true
+    htpasswd: "${NGINX_BASIC_AUTH}"
+  oidcAuth:
+    enabled: false
     providerURL: "https://elcarpenter.us.auth0.com/"
     redirectURL: "https://k10.storage.elcarpenter.com/oauth2/callback"
     scopes: "openid" 
