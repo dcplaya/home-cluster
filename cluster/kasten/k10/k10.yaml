@@ -41,11 +41,8 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "external"
         # nginx.ingress.kubernetes.io/app-root: /k10
-      # hosts:
-      # - host: k10.storage.elcarpenter.com
-        # paths:
-        # - path: /
-        #   pathType: Prefix
+      hosts:
+      - k10.storage.elcarpenter.com
       tls:
         enabled: true
         secretName: "kube-system/elcarpenter-com-tls"
