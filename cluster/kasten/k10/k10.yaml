@@ -53,10 +53,6 @@ spec:
   #       cpu: 25m
   #     limits:
   #       memory: 250Mi
-  valuesFrom:
-  - kind: Secret
-    name: "k10-helm-values"
-    optional: false
 
   # postRenderers:
   # # Instruct helm-controller to use built-in "kustomize" post renderer
@@ -69,3 +65,7 @@ spec:
   #       - op: replace
   #         path: /spec/rules/0/http/paths/0/path
   #         value: /
+  valuesFrom:
+  - kind: Secret
+    name: "k10-helm-values"
+    optional: false
