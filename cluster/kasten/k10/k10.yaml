@@ -27,10 +27,10 @@ spec:
         storageClass: rook-ceph-block
     clusterName: k8s
     services:
-      dashboardbff:
-        hostNetwork: true
-      executer:
-        hostNetwork: true
+      # dashboardbff:
+        # hostNetwork: true
+      # executer:
+        # hostNetwork: true
     # apigateway:
       # serviceResolver: endpoint
     ingress:
