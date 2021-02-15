@@ -35,11 +35,11 @@ spec:
       serviceResolver: endpoint
     ingress:
       create: true
-      class: "external"
+      class: "internal"
       host: k10.storage.elcarpenter.com
       urlPath: k10
       annotations:
-        kubernetes.io/ingress.class: "external"
+        kubernetes.io/ingress.class: "internal"
         # nginx.ingress.kubernetes.io/app-root: /k10
       hosts:
       - k10.storage.elcarpenter.com
