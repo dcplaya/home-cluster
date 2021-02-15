@@ -31,6 +31,8 @@ spec:
         hostNetwork: true
       executer:
         hostNetwork: true
+    apigateway:
+      serviceResolver: endpoint
     ingress:
       create: true
       class: "external"
