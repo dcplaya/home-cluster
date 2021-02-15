@@ -53,14 +53,14 @@ spec:
     name: "k10-helm-values"
     optional: false
 
-  postRenderers:
-  # Instruct helm-controller to use built-in "kustomize" post renderer
-  - kustomize:
-      patchesJson6902:
-      - target:
-          kind: Ingress
-          name: k10-ingress
-        patch:
-        - op: replace
-          path: /spec/rules/0/http/paths/0/path
-          value: /
+  # postRenderers:
+  # # Instruct helm-controller to use built-in "kustomize" post renderer
+  # - kustomize:
+  #     patchesJson6902:
+  #     - target:
+  #         kind: Ingress
+  #         name: k10-ingress
+  #       patch:
+  #       - op: replace
+  #         path: /spec/rules/0/http/paths/0/path
+  #         value: /
