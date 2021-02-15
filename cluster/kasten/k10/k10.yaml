@@ -30,7 +30,7 @@ spec:
       create: true
       class: "nginx"
       host: k10.storage.elcarpenter.com
-      # urlPath: /
+      urlPath: /
       annotations:
         kubernetes.io/ingress.class: "external"
       hosts:
@@ -48,15 +48,6 @@ spec:
   #     limits:
   #       memory: 250Mi
         claimName: nfs-nas-media-pvc
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: NotIn
-              values:
-              - node00
   valuesFrom:
   - kind: Secret
     name: "k10-helm-values"
