@@ -26,6 +26,11 @@ spec:
       persistence:
         storageClass: rook-ceph-block
     clusterName: k8s
+    services:
+      dashboardbff:
+        hostNetwork: true
+      executer:
+        hostNetwork: true
     ingress:
       create: true
       class: "external"
