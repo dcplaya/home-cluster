@@ -33,7 +33,7 @@ spec:
       urlPath: /k10
       annotations:
         kubernetes.io/ingress.class: "external"
-        nginx.ingress.kubernetes.io/app-root: /k10
+        # nginx.ingress.kubernetes.io/app-root: /k10
       hosts:
       - host: k10.storage.elcarpenter.com
         paths:
