@@ -24,15 +24,9 @@ spec:
       email: drewmich@elcarpenter.com
     global:
       persistence:
-        storageClass: rook-ceph-block
+        storageClass: rook-ceph-block-no-reclaim
     clusterName: k8s
     services:
-      # dashboardbff:
-        # hostNetwork: true
-      # executer:
-        # hostNetwork: true
-    # apigateway:
-      # serviceResolver: endpoint
     ingress:
       create: true
       class: "external"
