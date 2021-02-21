@@ -40,13 +40,6 @@ spec:
       tls:
         enabled: true
         secretName: "kube-system/elcarpenter-com-tls"
-  #   resources:
-  #     requests:
-  #       memory: 250Mi
-  #       cpu: 25m
-  #     limits:
-  #       memory: 250Mi
-
   # postRenderers:
   # # Instruct helm-controller to use built-in "kustomize" post renderer
   # - kustomize:
