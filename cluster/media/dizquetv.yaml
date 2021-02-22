@@ -33,7 +33,7 @@ spec:
       port:
         port: 8000
     ingress:
-      enabled: false
+      enabled: true
       annotations:
         kubernetes.io/ingress.class: "internal"
       hosts:
