@@ -48,39 +48,39 @@ spec:
           # Path will be /shared/Configs/RClone/default.conf
           mountPath: /shared
       containers:
-        - name: cloudplow-uploader
-          image: sabrsorensen/alpine-cloudplow:latest
-          imagePullPolicy: Always
-          env:
-            - name: PUID
-              value: "1000"
-            - name: GUID
-              value: "1000"
-            - name: CLOUDPLOW_CONFIG
-              value: "/shared/Configs/Cloudplow/config.json"
-            - name: CLOUDPLOW_LOGFILE
-              value: "/dev/stdout"
-            - name: CLOUDPLOW_LOGLEVEL
-              value: "INFO"
-            - name: CLOUDPLOW_CACHEFILE
-              value: "/volume1/Media/config/cloudplow/cache.db"
-            - name: TZ
-              value: "America/Los_Angeles"
-          volumeMounts:
-            - mountPath: /volume1/Media
-              name: media-pvc
-            - mountPath: /shared
-              name: shared
-          resources:
-            requests:
-              memory: 500Mi
-              cpu: 1000m
-            limits:
-              memory: 2000Mi
-              cpu: 1001m
+      - name: cloudplow-uploader
+        image: sabrsorensen/alpine-cloudplow:latest
+        imagePullPolicy: Always
+        env:
+          - name: PUID
+            value: "1000"
+          - name: GUID
+            value: "1000"
+          - name: CLOUDPLOW_CONFIG
+            value: "/shared/Configs/Cloudplow/config.json"
+          - name: CLOUDPLOW_LOGFILE
+            value: "/dev/stdout"
+          - name: CLOUDPLOW_LOGLEVEL
+            value: "INFO"
+          - name: CLOUDPLOW_CACHEFILE
+            value: "/volume1/Media/config/cloudplow/cache.db"
+          - name: TZ
+            value: "America/Los_Angeles"
+        volumeMounts:
+          - mountPath: /volume1/Media
+            name: media-pvc
+          - mountPath: /shared
+            name: shared
+        resources:
+          requests:
+            memory: 500Mi
+            cpu: 1000m
+          limits:
+            memory: 2000Mi
+            cpu: 1001m
       volumes:
-        - name: media-pvc
-          persistentVolumeClaim:
-            claimName: nfs-nas-media-pvc
-        - name: shared
-          emptyDir: {}
+      - name: media-pvc
+        persistentVolumeClaim:
+          claimName: nfs-nas-media-pvc
+      - name: shared
+        emptyDir: {}
