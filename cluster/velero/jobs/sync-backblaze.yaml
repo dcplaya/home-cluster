@@ -45,7 +45,7 @@ spec:
                 printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
                 exit 1
               fi
-              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/RClone.git" /shared/RClone
+              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/Configs.git" /shared/Configs
               exit 0
             volumeMounts:
             - name: shared
@@ -61,7 +61,7 @@ spec:
             args:
             - "-vvv"
             - "--config"
-            - "/shared/RClone/Configs/default.conf"
+            - "/shared/Configs/RClone/default.conf"
             - "sync"
             - "--ignore-errors"
             - "--fast-list"
