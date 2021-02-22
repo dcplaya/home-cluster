@@ -19,7 +19,6 @@ spec:
       labels:
         app: cloudplow-uploader
     spec:
-      restartPolicy: OnFailure
       dnsConfig:
         nameservers:
         - 10.201.50.10
