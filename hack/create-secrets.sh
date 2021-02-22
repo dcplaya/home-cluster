@@ -111,6 +111,13 @@ kubectl create secret generic gitea-pat \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
+kubectl create secret generic gitea-pat \
+    --from-literal=token="${GITEA_PAT}" \
+    --namespace media --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
+
 # # sonarr episode prune - default namespace
 # kubectl create secret generic sonarr-episode-prune \
 #     --from-literal=api-key="${SONARR_APIKEY}" \
