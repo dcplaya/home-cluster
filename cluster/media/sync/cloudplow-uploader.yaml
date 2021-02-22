@@ -29,7 +29,7 @@ spec:
         - name: GITEA_TOKEN
           valueFrom:
             secretKeyRef:
-              name: gitea-pat
+              name: velero/gitea-pat
               key: token
         command:
         - "/bin/sh"
