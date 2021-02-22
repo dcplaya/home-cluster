@@ -60,8 +60,6 @@ spec:
             #   - name: PUID
             #     value: "1000"
             volumeMounts:
-            - mountPath: /config
-              name: config-plex-auto-collections
             - mountPath: /shared
               name: shared
             resources:
@@ -73,8 +71,5 @@ spec:
                 cpu: 300m
           restartPolicy: Never
           volumes:
-          - name: config-plex-auto-collections
-            persistentVolumeClaim:
-              claimName: config-plex-auto-collections
           - name: shared
             emptyDir: {}
