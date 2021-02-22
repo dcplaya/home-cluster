@@ -24,7 +24,7 @@ spec:
     env:
       TZ: "America/Los_Angeles"
       UP_UNIFI_DEFAULT_ROLE: "home"
-      UP_UNIFI_DEFAULT_URL: "https://unifi.network.elcarpenter.com/"
+      UP_UNIFI_DEFAULT_URL: "https://10.10.200.220"
       UP_UNIFI_DEFAULT_VERIFY_SSL: false
       UP_UNIFI_DEFAULT_USER: "unifipoller"
       UP_UNIFI_DEFAULT_PASS: "Unifipoller1"
