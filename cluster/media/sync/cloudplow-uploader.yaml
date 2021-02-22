@@ -19,6 +19,35 @@ spec:
       labels:
         app: cloudplow-uploader
     spec:
+      restartPolicy: OnFailure
+      dnsConfig:
+        nameservers:
+        - 10.201.50.10
+      initContainers:
+      - name: rclone-conf
+        image: alpine/git:v2.30.0
+        env:
+        - name: GITEA_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: gitea-pat
+              key: token
+        command:
+        - "/bin/sh"
+        - "-ec"
+        - |
+          set -o nounset
+          set -o errexit
+          if [ -z "${GITEA_TOKEN}" ]; then
+            printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
+            exit 1
+          fi
+          git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/Configs.git" /shared/Configs
+          exit 0
+        volumeMounts:
+        - name: shared
+          # Path will be /shared/Configs/RClone/default.conf
+          mountPath: /shared
       containers:
         - name: cloudplow-uploader
           image: sabrsorensen/alpine-cloudplow:latest
@@ -29,9 +58,9 @@ spec:
             - name: GUID
               value: "1000"
             - name: CLOUDPLOW_CONFIG
-              value: "/volume1/Media/config/cloudplow/config.json"
+              value: "/shared/Configs/Cloudplow/config.json"
             - name: CLOUDPLOW_LOGFILE
-              value: "/volume1/Media/config/cloudplow/cloudplow.log"
+              value: "/dev/stdout"
             - name: CLOUDPLOW_LOGLEVEL
               value: "INFO"
             - name: CLOUDPLOW_CACHEFILE
@@ -41,6 +70,8 @@ spec:
           volumeMounts:
             - mountPath: /volume1/Media
               name: media-pvc
+            - mountPath: /shared
+              name: shared
           resources:
             requests:
               memory: 500Mi
@@ -52,3 +83,5 @@ spec:
         - name: media-pvc
           persistentVolumeClaim:
             claimName: nfs-nas-media-pvc
+        - name: shared
+          emptyDir: {}
