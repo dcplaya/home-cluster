@@ -59,7 +59,7 @@ spec:
         - name: CLOUDPLOW_CONFIG
           value: "/shared/Configs/Cloudplow/config.json"
         - name: CLOUDPLOW_LOGFILE
-          value: "/dev/stdout"
+          value: "/dev/null"
         - name: CLOUDPLOW_LOGLEVEL
           value: "INFO"
         - name: CLOUDPLOW_CACHEFILE
