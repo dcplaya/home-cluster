@@ -23,10 +23,10 @@ spec:
             image: mza921/plex-auto-collections:latest
             imagePullPolicy: Always
 
-            # command: ["sleep"]
-            # args: ["99999999999"]
-            command: ["/usr/local/bin/python3"]
-            args: ["/app/plex_auto_collections.py", "-u"]
+            command: ["sleep"]
+            args: ["99999999999"]
+            # command: ["/usr/local/bin/python3"]
+            # args: ["/app/plex_auto_collections.py", "-u"]
 
             # env:
             #   - name: PUID
