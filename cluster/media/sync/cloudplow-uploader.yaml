@@ -77,7 +77,7 @@ spec:
               cpu: 1000m
             limits:
               memory: 2000Mi
-              cpu: 1000m
+              cpu: 1001m
       volumes:
         - name: media-pvc
           persistentVolumeClaim:
