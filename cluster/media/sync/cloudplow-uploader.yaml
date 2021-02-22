@@ -23,7 +23,7 @@ spec:
         nameservers:
         - 10.201.50.10
       initContainers:
-      - name: rclone-conf
+      - name: git-config
         image: alpine/git:v2.30.0
         env:
         - name: GITEA_TOKEN

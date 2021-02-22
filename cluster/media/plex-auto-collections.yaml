@@ -18,15 +18,43 @@ spec:
     spec:
       template:
         spec:
+          dnsConfig:
+            nameservers:
+            - 10.201.50.10
+          initContainers:
+          - name: git-config
+            image: alpine/git:v2.30.0
+            env:
+            - name: GITEA_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: gitea-pat
+                  key: token
+            command:
+            - "/bin/sh"
+            - "-ec"
+            - |
+              set -o nounset
+              set -o errexit
+              if [ -z "${GITEA_TOKEN}" ]; then
+                printf "%s - Error - Missing GITEA_TOKEN environment variable" "$(date -u)"
+                exit 1
+              fi
+              git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/Configs.git" /shared/Configs
+              exit 0
+            volumeMounts:
+            - name: shared
+              # Path will be /shared/Configs/RClone/default.conf
+              mountPath: /shared
           containers:
           - name: plex-auto-collections
             image: mza921/plex-auto-collections:latest
             imagePullPolicy: Always
 
-            command: ["sleep"]
-            args: ["99999999999"]
-            # command: ["/usr/local/bin/python3"]
-            # args: ["/app/plex_auto_collections.py", "-u"]
+            # command: ["sleep"]
+            # args: ["99999999999"]
+            command: ["/usr/local/bin/python3"]
+            args: ["/app/plex_auto_collections.py", "-u", "--config-path=/shared/Configs/Plex-Auto-Collections/config.yml"]
 
             # env:
             #   - name: PUID
@@ -34,6 +62,8 @@ spec:
             volumeMounts:
             - mountPath: /config
               name: config-plex-auto-collections
+            - mountPath: /shared
+              name: shared
             resources:
               requests:
                 memory: 50Mi
@@ -46,3 +76,5 @@ spec:
           - name: config-plex-auto-collections
             persistentVolumeClaim:
               claimName: config-plex-auto-collections
+          - name: shared
+            emptyDir: {}
