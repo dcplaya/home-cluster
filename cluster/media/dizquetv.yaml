@@ -51,13 +51,9 @@ spec:
         existingClaim: config-dizquetv
     podAnnotations:
       backup.velero.io/backup-volumes: config
-    # additionalVolumeMounts:
-    # - name: nfs-nas-merged-media-pvc
-    #   mountPath: "/mnt/unionfs"
-    # additionalVolumes:
-    # - name: nfs-nas-merged-media-pvc
-    #   persistentVolumeClaim:
-    #     claimName: nfs-nas-merged-media-pvc
+    probes:
+      liveness:
+        enabled: false
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

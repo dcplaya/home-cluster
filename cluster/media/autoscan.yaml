@@ -57,6 +57,9 @@ spec:
     - name: nfs-nas-merged-media-pvc
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
+    probes:
+      liveness:
+        enabled: false
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
