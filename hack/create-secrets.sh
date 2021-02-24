@@ -71,15 +71,15 @@ echo "---" >>"${GENERATED_SECRETS}"
 
 # github runner
 kubectl create secret generic controller-manager \
-    --from-literal=token="${GITHUB_RUNNER_ACCESS_TOKEN}" \
+    --from-literal=github_token="${GITHUB_RUNNER_ACCESS_TOKEN}" \
     --namespace actions-runner-system --dry-run=client -o json |
     kubeseal --format=yaml --cert="${PUB_CERT}" \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
 # flux notifications notifcations
-kubectl create secret generic github_pat \
-    --from-literal=github_token="${GITHUB_NOTIFICATIONS_PAT}" \
+kubectl create secret generic github-pat \
+    --from-literal=token="${GITHUB_NOTIFICATIONS_PAT}" \
     --namespace flux-system --dry-run=client -o json |
     kubeseal --format=yaml --cert="${PUB_CERT}" \
         >>"${GENERATED_SECRETS}"
