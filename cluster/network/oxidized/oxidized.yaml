@@ -48,6 +48,7 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /root/.config/oxidized
         existingClaim: config-oxidized
     podAnnotations:
       backup.velero.io/backup-volumes: config
