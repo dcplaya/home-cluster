@@ -71,8 +71,16 @@ echo "---" >>"${GENERATED_SECRETS}"
 
 # github runner
 kubectl create secret generic controller-manager \
-    --from-literal=github_token="${GITHUB_RUNNER_ACCESS_TOKEN}" \
+    --from-literal=token="${GITHUB_RUNNER_ACCESS_TOKEN}" \
     --namespace actions-runner-system --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
+
+# flux notifications notifcations
+kubectl create secret generic github_pat \
+    --from-literal=github_token="${GITHUB_NOTIFICATIONS_PAT}" \
+    --namespace flux-system --dry-run=client -o json |
     kubeseal --format=yaml --cert="${PUB_CERT}" \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
@@ -103,7 +111,7 @@ kubectl create secret generic qbittorrent \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
-# gitea personal access token
+# gitea personal access token for velero NS
 kubectl create secret generic gitea-pat \
     --from-literal=token="${GITEA_PAT}" \
     --namespace velero --dry-run=client -o json |
@@ -111,6 +119,7 @@ kubectl create secret generic gitea-pat \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
+# gitea personal access token for media NS
 kubectl create secret generic gitea-pat \
     --from-literal=token="${GITEA_PAT}" \
     --namespace media --dry-run=client -o json |
