@@ -11,15 +11,15 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: radarr
-      version: 9.1.0
+      chart: dizquetv
+      version: 1.0.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
       interval: 5m
   values:
-    fullnameOverride: dizquetv
+    # fullnameOverride: dizquetv
     controllerType: deployment
     image:
       repository: vexorian/dizquetv
@@ -29,9 +29,9 @@ spec:
       TZ: "America/Los_Angeles"
       PUID: "1000"
       PGID: "100"
-    service:
-      port:
-        port: 8000
+    # service:
+      # port:
+        # port: 8000
     ingress:
       enabled: true
       annotations:
@@ -47,7 +47,7 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /home/node/app/.dizquetv
+        # mountPath: /home/node/app/.dizquetv
         existingClaim: config-dizquetv
     podAnnotations:
       backup.velero.io/backup-volumes: config
