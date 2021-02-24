@@ -55,6 +55,8 @@ spec:
     probes:
       liveness:
         enabled: false
+      startup:
+        enabled: false
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
