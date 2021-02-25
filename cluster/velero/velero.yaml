@@ -64,7 +64,7 @@ spec:
       weekly-backup:
         schedule: "0 3 * * 1"
         template:
-          ttl: "1800h"
+          ttl: "720h"
   valuesFrom:
   - kind: Secret
     name: "velero-helm-values"
