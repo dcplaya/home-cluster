@@ -42,6 +42,7 @@ spec:
             exit 1
           fi
           git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/Configs.git" /shared/Configs
+          chown -R 1000:1000 /shared/Configs
           exit 0
         volumeMounts:
         - name: shared
