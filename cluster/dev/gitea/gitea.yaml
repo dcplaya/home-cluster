@@ -53,7 +53,7 @@ spec:
         server:
           ROOT_URL: https://git.dev.elcarpenter.com
           DISABLE_SSH: FALSE
-          START_SSH_SERVER: TRUE
+          START_SSH_SERVER: FALSE
           SSH_PORT: 22
           SSH_LISTEN_PORT: 22
         respository:
