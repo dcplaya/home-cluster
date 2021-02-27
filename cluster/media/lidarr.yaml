@@ -67,9 +67,6 @@ spec:
       config:
         enabled: true
         existingClaim: config-lidarr
-    #     storageClass: "rook-ceph-block"
-    #     accessMode: ReadWriteOnce
-    #     size: "25Gi"
     podAnnotations:
       backup.velero.io/backup-volumes: config
     additionalVolumeMounts:
