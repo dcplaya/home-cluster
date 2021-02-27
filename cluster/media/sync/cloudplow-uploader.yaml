@@ -34,7 +34,6 @@ spec:
         command:
         - "/bin/sh"
         - "-ec"
-        # chown -R 1000:1000 /shared/Configs
         - |
           set -o nounset
           set -o errexit
@@ -43,6 +42,7 @@ spec:
             exit 1
           fi
           git clone --depth 1 "https://${GITEA_TOKEN}@git.dev.elcarpenter.com/dcplaya/Configs.git" /shared/Configs
+          chown -R 1000:1000 /shared/Configs
           exit 0
         volumeMounts:
         - name: shared
@@ -50,7 +50,7 @@ spec:
           mountPath: /shared
       containers:
       - name: cloudplow-uploader
-        image: sabrsorensen/alpine-cloudplow:init_config
+        image: sabrsorensen/alpine-cloudplow:latest
         imagePullPolicy: Always
         env:
         - name: PUID
