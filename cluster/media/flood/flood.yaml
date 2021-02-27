@@ -12,7 +12,7 @@ spec:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: flood
-      version: 2.4.0
+      version: 3.0.1
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -24,14 +24,10 @@ spec:
       repository: jesec/flood
       tag: 4.4.1
       pullPolicy: Always
-    command:
-    - "sleep"
-    args:
-    - "99999999999"
     env:
       FLOOD_OPTION_RUNDIR: /data
       FLOOD_OPTION_AUTH: "none"
-      FLOOD_OPTION_QBURL: "http://qb.media.svc.cluster.local:8080"
+      FLOOD_OPTION_QBURL: "http://qbittorrent.media.svc.cluster.local:8080"
     ingress:
       enabled: true
       annotations:
@@ -46,9 +42,11 @@ spec:
         - "flood.media.elcarpenter.com"
     persistence:
       data:
-        enabled: false
+        enabled: true
         emptyDir: false
         existingClaim: config-flood
+    podAnnotations:
+      backup.velero.io/backup-volumes: data
     resources:
       requests:
         memory: 250Mi
