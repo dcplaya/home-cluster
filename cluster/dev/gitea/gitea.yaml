@@ -67,7 +67,7 @@ spec:
           DISABLE_REGISTRATION: true
           REQUIRE_SIGNIN_VIEW: true
       metrics:
-        enabled: false
+        enabled: true
         serviceMonitor:
           enabled: true
       database:
