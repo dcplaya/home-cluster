@@ -77,7 +77,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
-          fps: 5
+          take_frame: 1
         dining-room:
           ffmpeg:
             inputs:
@@ -87,7 +87,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
-          fps: 5
+          take_frame: 1
           zones:
             zone-kitchen:
               coordinates: 991,414,1920,289,1920,702,1708,924,1564,1080,1120,1080,1061,1039
@@ -100,7 +100,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
-          fps: 5
+          take_frame: 1
         back-door:
           ffmpeg:
             inputs:
@@ -110,7 +110,7 @@ spec:
                   - rtmp
           height: 1080
           width: 1920
-          fps: 5
+          take_frame: 1
     ingress:
       enabled: true
       annotations:
@@ -132,4 +132,4 @@ spec:
         cpu: 750m
       limits:
         memory: 2500Mi
-        cpu: 2500m
+        # cpu: 2500m
