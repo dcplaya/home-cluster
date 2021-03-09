@@ -2,10 +2,10 @@
 apiVersion: config.kio.kasten.io/v1alpha1
 kind: Policy
 metadata:
-  name: Media-Namespace
+  name: media-namespace
   namespace: kasten
 spec:
-  comment: ""
+  comment: "Media Services Only"
   frequency: "@daily"
   actions:
     - action: backup
@@ -73,4 +73,4 @@ spec:
       - key: k10.kasten.io/appNamespace
         operator: In
         values:
-          - default
+          - media
