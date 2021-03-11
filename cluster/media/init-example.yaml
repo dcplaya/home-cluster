@@ -24,4 +24,4 @@ spec:
   volumes:
   - name: config-pvc
     persistentVolumeClaim:
-      claimName: config-autoscan
+      claimName: config-overseer
