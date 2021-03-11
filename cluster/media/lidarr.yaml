@@ -21,8 +21,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: linuxserver/lidarr
-      tag: 0.8.0.1920-ls5
+      repository: hotio/lidarr
+      tag: nightly
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"

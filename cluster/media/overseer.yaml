@@ -21,8 +21,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: sctx/overseerr
-      tag: develop
+      repository: hotio/overseerr
+      tag: nightly
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
@@ -55,7 +55,7 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /app/config
+        mountPath: /config
         existingClaim: config-overseer
     podAnnotations:
       backup.velero.io/backup-volumes: config
