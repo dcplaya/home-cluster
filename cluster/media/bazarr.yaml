@@ -69,6 +69,18 @@ spec:
         tls:
         - hosts:
           - "subtitles.media.elcarpenter.com"
+      - enabled: true
+        nameSuffix: "altname01"
+        annotations:
+          kubernetes.io/ingress.class: "external"
+        hosts:
+        - host: subs.media.elcarpenter.com
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "subs.media.elcarpenter.com"
     persistence:
       config:
         enabled: true
