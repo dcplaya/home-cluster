@@ -21,8 +21,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: linuxserver/sonarr
-      tag: preview
+      repository: hotio/sonarr
+      tag: nightly
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
@@ -78,7 +78,6 @@ spec:
     - name: nfs-nas-merged-media-pvc
       persistentVolumeClaim:
         claimName: nfs-nas-merged-media-pvc
-
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -88,8 +87,6 @@ spec:
               operator: NotIn
               values:
               - node04
-              # - k8s-worker-e
-
     resources:
       requests:
         memory: 250Mi
