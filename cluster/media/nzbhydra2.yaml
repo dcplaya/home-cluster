@@ -21,8 +21,8 @@ spec:
   values:
     controllerType: deployment
     image:
-      repository: linuxserver/nzbhydra2
-      tag: latest
+      repository: hotio/nzbhydra2
+      tag: testing
       pullPolicy: Always
     env:
       TZ: "America/Los_Angeles"
