@@ -33,6 +33,7 @@ spec:
     - dashboards.elcarpenter.com
     - dev.elcarpenter.com
     - monitoring.elcarpenter.com
+    - chat.elcarpenter.com
     createSecret: true
     crd:
       create: true

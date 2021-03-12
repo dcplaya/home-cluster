@@ -24,3 +24,4 @@ spec:
   - '*.dashboards.elcarpenter.com'
   - '*.monitoring.elcarpenter.com'
   - '*.dev.elcarpenter.com'
+  - '*.chat.elcarpenter.com'

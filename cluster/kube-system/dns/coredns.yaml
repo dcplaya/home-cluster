@@ -28,7 +28,7 @@ spec:
       externalTrafficPolicy: Local
     servers:
     - zones:
-      - zone: media.elcarpenter.com. unifi.elcarpenter.com. home.elcarpenter.com. network.elcarpenter.com. auth.elcarpenter.com. backup.elcarpenter.com. dashboards.elcarpenter.com. devops.elcarpenter.com. monitoring.elcarpenter.com. storage.elcarpenter.com. dev.elcarpenter.com.
+      - zone: media.elcarpenter.com. unifi.elcarpenter.com. home.elcarpenter.com. network.elcarpenter.com. auth.elcarpenter.com. backup.elcarpenter.com. dashboards.elcarpenter.com. devops.elcarpenter.com. monitoring.elcarpenter.com. storage.elcarpenter.com. dev.elcarpenter.com. chat.elcarpenter.com.
         scheme: dns://
         # use_tcp: true
       port: 53
@@ -62,7 +62,7 @@ spec:
       - name: reload
       - name: loadbalance
       - name: etcd
-        parameters: media.elcarpenter.com unifi.elcarpenter.com home.elcarpenter.com network.elcarpenter.com auth.elcarpenter.com backup.elcarpenter.com dashboards.elcarpenter.com devops.elcarpenter.com monitoring.elcarpenter.com storage.elcarpenter.com dev.elcarpenter.com
+        parameters: media.elcarpenter.com unifi.elcarpenter.com home.elcarpenter.com network.elcarpenter.com auth.elcarpenter.com backup.elcarpenter.com dashboards.elcarpenter.com devops.elcarpenter.com monitoring.elcarpenter.com storage.elcarpenter.com dev.elcarpenter.com chat.elcarpenter.com
         configBlock: |-
           stubzones
           path /skydns
