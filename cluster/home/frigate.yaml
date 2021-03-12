@@ -75,8 +75,8 @@ spec:
                 roles:
                   - detect
                   - rtmp
-          height: 640
-          width: 360
+          width: 640
+          height: 360
           fps: 5
         dining-room:
           ffmpeg:
@@ -85,8 +85,8 @@ spec:
                 roles:
                   - detect
                   - rtmp
-          height: 640
-          width: 360
+          width: 640
+          height: 360
           fps: 5
           zones:
             zone-kitchen:
@@ -98,8 +98,8 @@ spec:
                 roles:
                   - detect
                   - rtmp
-          height: 640
-          width: 360
+          width: 640
+          height: 360
           fps: 5
         back-door:
           ffmpeg:
@@ -108,8 +108,8 @@ spec:
                 roles:
                   - detect
                   - rtmp
-          height: 640
-          width: 360
+          width: 640
+          height: 360
           fps: 5
     ingress:
       enabled: true
