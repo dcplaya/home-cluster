@@ -78,13 +78,17 @@ spec:
               operator: In
               values:
               - node04
-              # - k8s-worker-e
+            - key: feature.node.kubernetes.io/custom-intel-gpu
+              operator: In
+              values:
+              - "true"
     resources:
       requests:
         ## 1000m = 1 core
         ## Setting request high enough so this doesnt get scheduled on i3 NUCs
         cpu: 8000m
         memory: 10000Mi
+        gpu.intel.com/i915: 1
       limits:
         gpu.intel.com/i915: 1
         memory: 20000Mi
