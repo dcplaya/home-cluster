@@ -122,10 +122,12 @@ spec:
           nodeSelectorTerms:
           - matchExpressions:
             - {key: "feature.node.kubernetes.io/custom-coral-tpu", operator: In, values: ["true"]}
+            - {key: "feature.node.kubernetes.io/custom-intel-gpu", operator: In, values: ["true"]}
     resources:
       requests:
         memory: 1000Mi
         cpu: 750m
+        gpu.intel.com/i915: 1
       limits:
         memory: 2500Mi
-        # cpu: 2500m
+        gpu.intel.com/i915: 1
